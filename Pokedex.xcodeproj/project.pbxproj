@@ -44,6 +44,9 @@
 		3247741E25BCA39A00D83813 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3247741D25BCA39A00D83813 /* Constants.swift */; };
 		3247742825BCA8E200D83813 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3247742725BCA8E200D83813 /* Move.swift */; };
 		3247742C25BCAC0600D83813 /* FlavorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3247742B25BCAC0600D83813 /* FlavorText.swift */; };
+		3247743925BCC4F900D83813 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3247743725BCC4F900D83813 /* PokemonTableViewCell.swift */; };
+		3247743A25BCC4F900D83813 /* PokemonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3247743825BCC4F900D83813 /* PokemonTableViewCell.xib */; };
+		3247743E25BCC7D800D83813 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3247743D25BCC7D800D83813 /* ImageRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +101,9 @@
 		3247741D25BCA39A00D83813 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3247742725BCA8E200D83813 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		3247742B25BCAC0600D83813 /* FlavorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorText.swift; sourceTree = "<group>"; };
+		3247743725BCC4F900D83813 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
+		3247743825BCC4F900D83813 /* PokemonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonTableViewCell.xib; sourceTree = "<group>"; };
+		3247743D25BCC7D800D83813 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +188,7 @@
 				3222696E25BC7D3F0088F8DD /* PaginatedResponse.swift */,
 				324773FE25BC93AA00D83813 /* NetworkRequest.swift */,
 				3247740225BC977300D83813 /* ApiRequest.swift */,
+				3247743D25BCC7D800D83813 /* ImageRequest.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -196,6 +203,8 @@
 				3222694525BC57190088F8DD /* MovesViewController.xib */,
 				3222694A25BC572F0088F8DD /* ItemsViewController.swift */,
 				3222694B25BC572F0088F8DD /* ItemsViewController.xib */,
+				3247743725BCC4F900D83813 /* PokemonTableViewCell.swift */,
+				3247743825BCC4F900D83813 /* PokemonTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				322268FE25BC4C040088F8DD /* LaunchScreen.storyboard in Resources */,
+				3247743A25BCC4F900D83813 /* PokemonTableViewCell.xib in Resources */,
 				3222694725BC57190088F8DD /* MovesViewController.xib in Resources */,
 				3222694125BC56F60088F8DD /* PokemonsViewController.xib in Resources */,
 				3222694D25BC572F0088F8DD /* ItemsViewController.xib in Resources */,
@@ -356,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3247740325BC977300D83813 /* ApiRequest.swift in Sources */,
+				3247743E25BCC7D800D83813 /* ImageRequest.swift in Sources */,
 				3222693925BC50930088F8DD /* Coordinator.swift in Sources */,
 				3222697A25BC81260088F8DD /* PokemonType.swift in Sources */,
 				3222699725BC8D620088F8DD /* ApiResource.swift in Sources */,
@@ -372,6 +383,7 @@
 				3222693525BC50870088F8DD /* AppCoordinator.swift in Sources */,
 				3222696B25BC76350088F8DD /* GradientView.swift in Sources */,
 				322268F225BC4C030088F8DD /* AppDelegate.swift in Sources */,
+				3247743925BCC4F900D83813 /* PokemonTableViewCell.swift in Sources */,
 				322268F425BC4C030088F8DD /* SceneDelegate.swift in Sources */,
 				3222695125BC57510088F8DD /* PokemonsCoordinator.swift in Sources */,
 				3222695E25BC595C0088F8DD /* NavigationBar.swift in Sources */,

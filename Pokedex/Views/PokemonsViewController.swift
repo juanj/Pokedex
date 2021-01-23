@@ -27,7 +27,8 @@ class PokemonsViewController: UIViewController {
 
     private func configureTableView() {
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.CellIds.pokemonCell)
+        tableView.rowHeight = 75
+        tableView.register(UINib(nibName: "PokemonTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonCell)
     }
 }
 
@@ -37,11 +38,11 @@ extension PokemonsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.pokemonCell) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.pokemonCell) as? PokemonTableViewCell else {
             fatalError("Unable to dequeue cell with reusable identifier \(Constants.CellIds.pokemonCell)")
         }
 
-        cell.textLabel?.text = pokemons[indexPath.row].name
+        cell.load(viewModel: pokemons[indexPath.row])
 
         return cell
     }
