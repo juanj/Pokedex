@@ -23,6 +23,9 @@
 		3222695125BC57510088F8DD /* PokemonsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222695025BC57510088F8DD /* PokemonsCoordinator.swift */; };
 		3222695525BC577B0088F8DD /* MovesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222695425BC577B0088F8DD /* MovesCoordinator.swift */; };
 		3222695925BC578E0088F8DD /* ItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222695825BC578E0088F8DD /* ItemsCoordinator.swift */; };
+		3222695E25BC595C0088F8DD /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222695D25BC595C0088F8DD /* NavigationBar.swift */; };
+		3222696325BC5ADB0088F8DD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222696225BC5ADB0088F8DD /* Colors.swift */; };
+		3222696725BC5FD10088F8DD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222696625BC5FD10088F8DD /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		3222695025BC57510088F8DD /* PokemonsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonsCoordinator.swift; sourceTree = "<group>"; };
 		3222695425BC577B0088F8DD /* MovesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesCoordinator.swift; sourceTree = "<group>"; };
 		3222695825BC578E0088F8DD /* ItemsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCoordinator.swift; sourceTree = "<group>"; };
+		3222695D25BC595C0088F8DD /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		3222696225BC5ADB0088F8DD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		3222696625BC5FD10088F8DD /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 				3222693125BC50400088F8DD /* Networking */,
 				3222693225BC504B0088F8DD /* Views */,
 				3222693325BC50550088F8DD /* View Models */,
+				3222696125BC5ACE0088F8DD /* Utils */,
 				322268F125BC4C030088F8DD /* AppDelegate.swift */,
 				322268F325BC4C030088F8DD /* SceneDelegate.swift */,
 				322268FA25BC4C040088F8DD /* Assets.xcassets */,
@@ -141,6 +148,7 @@
 		3222693225BC504B0088F8DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3222695C25BC591E0088F8DD /* Custom views */,
 				3222693E25BC56F60088F8DD /* PokemonsViewController.swift */,
 				3222693F25BC56F60088F8DD /* PokemonsViewController.xib */,
 				3222694425BC57190088F8DD /* MovesViewController.swift */,
@@ -156,6 +164,23 @@
 			children = (
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		3222695C25BC591E0088F8DD /* Custom views */ = {
+			isa = PBXGroup;
+			children = (
+				3222695D25BC595C0088F8DD /* NavigationBar.swift */,
+			);
+			path = "Custom views";
+			sourceTree = "<group>";
+		};
+		3222696125BC5ACE0088F8DD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3222696225BC5ADB0088F8DD /* Colors.swift */,
+				3222696625BC5FD10088F8DD /* Fonts.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +286,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3222693925BC50930088F8DD /* Coordinator.swift in Sources */,
+				3222696325BC5ADB0088F8DD /* Colors.swift in Sources */,
+				3222696725BC5FD10088F8DD /* Fonts.swift in Sources */,
 				3222693525BC50870088F8DD /* AppCoordinator.swift in Sources */,
 				322268F225BC4C030088F8DD /* AppDelegate.swift in Sources */,
 				322268F425BC4C030088F8DD /* SceneDelegate.swift in Sources */,
 				3222695125BC57510088F8DD /* PokemonsCoordinator.swift in Sources */,
+				3222695E25BC595C0088F8DD /* NavigationBar.swift in Sources */,
 				3222694C25BC572F0088F8DD /* ItemsViewController.swift in Sources */,
 				3222695525BC577B0088F8DD /* MovesCoordinator.swift in Sources */,
 				3222694025BC56F60088F8DD /* PokemonsViewController.swift in Sources */,

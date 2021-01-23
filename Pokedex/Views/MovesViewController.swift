@@ -7,4 +7,6 @@
 
 import UIKit
 
-class MovesViewController: UIViewController {}
+class MovesViewController: UIViewController {
+    @IBOutlet weak var navigationBar: NavigationBar!
+}

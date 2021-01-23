@@ -7,4 +7,6 @@
 
 import UIKit
 
-class ItemsViewController: UIViewController {}
+class ItemsViewController: UIViewController {
+    @IBOutlet weak var navigationBar: NavigationBar!
+}

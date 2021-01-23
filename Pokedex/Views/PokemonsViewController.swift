@@ -7,4 +7,6 @@
 
 import UIKit
 
-class PokemonsViewController: UIViewController {}
+class PokemonsViewController: UIViewController {
+    @IBOutlet weak var navigationBar: NavigationBar!
+}
