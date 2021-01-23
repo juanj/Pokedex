@@ -25,7 +25,7 @@ class ItemsCoordinator: Coordinator {
     }
 
     private func loadItems() {
-        let movesRequest = ApiRequest(resource: ItemListResource())
+        let movesRequest = ApiRequest(resource: ItemListResource(limit: 50))
         movesRequest.load { result in
             switch result {
             case .success(let data):
