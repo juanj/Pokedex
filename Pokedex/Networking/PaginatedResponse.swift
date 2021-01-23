@@ -11,5 +11,5 @@ struct PaginatedResponse<Type: Decodable>: Decodable {
     let count: Int
     let next: String?
     let previous: String?
-    let results: [Type]
+    var results: [Type]
 }

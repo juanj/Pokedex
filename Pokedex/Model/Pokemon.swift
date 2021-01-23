@@ -11,8 +11,8 @@ struct Pokemon: Decodable {
     let id: Int
     let name: String
     let abilities: [PokemonAbility]
-    let moves: [PokemonMove]
+    /*let moves: [PokemonMove]
     let sprites: PokemonSprites
-    let stats: [PokemonStat]
+    let stats: [PokemonStat]*/
     let types: [PokemonType]
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct PokemonListResource: ApiResource {
-    typealias ModelType = PaginatedResponse<NamedRefType>
+    typealias ModelType = PaginatedResponse<NamedRefType<Pokemon>>
 
     var limit: Int
     var offset: Int

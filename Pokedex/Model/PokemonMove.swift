@@ -8,5 +8,5 @@
 import Foundation
 
 struct PokemonMove: Decodable {
-    let move: NamedRefType
+    let move: NamedRefType<Move>
 }

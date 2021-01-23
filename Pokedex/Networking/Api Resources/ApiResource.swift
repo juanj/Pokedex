@@ -11,6 +11,7 @@ protocol ApiResource {
     associatedtype ModelType: Decodable
     var endpoint: String { get }
     var parameters: [String: String] { get }
+    var url: URL { get }
 }
 
 extension ApiResource {
@@ -33,5 +34,6 @@ extension ApiResource {
         return url
     }
 
+    var endpoint: String { "" }
     var parameters: [String: String] { [:] }
 }
