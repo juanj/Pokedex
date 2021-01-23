@@ -39,6 +39,16 @@ class AppCoordinator: Coordinator {
         tabBarController.tabBar.tintColor = .black
         tabBarController.viewControllers = [pokemonsNavigationController, movesNavigationController, itemsNavigationController]
 
+        let pokemonsCoordinator = PokemonsCoordinator(navigationController: pokemonsNavigationController)
+        let movesCoordinator = MovesCoordinator(navigationController: movesNavigationController)
+        let itemsCoordinator = ItemsCoordinator(navigationController: itemsNavigationController)
+        childCoordinators.append(pokemonsCoordinator)
+        childCoordinators.append(movesCoordinator)
+        childCoordinators.append(itemsCoordinator)
+        pokemonsCoordinator.start()
+        movesCoordinator.start()
+        itemsCoordinator.start()
+
         return tabBarController
     }
 }

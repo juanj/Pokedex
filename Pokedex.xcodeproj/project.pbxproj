@@ -14,6 +14,15 @@
 		3222690925BC4C040088F8DD /* PokedexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222690825BC4C040088F8DD /* PokedexTests.swift */; };
 		3222693525BC50870088F8DD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222693425BC50870088F8DD /* AppCoordinator.swift */; };
 		3222693925BC50930088F8DD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222693825BC50930088F8DD /* Coordinator.swift */; };
+		3222694025BC56F60088F8DD /* PokemonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222693E25BC56F60088F8DD /* PokemonsViewController.swift */; };
+		3222694125BC56F60088F8DD /* PokemonsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3222693F25BC56F60088F8DD /* PokemonsViewController.xib */; };
+		3222694625BC57190088F8DD /* MovesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222694425BC57190088F8DD /* MovesViewController.swift */; };
+		3222694725BC57190088F8DD /* MovesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3222694525BC57190088F8DD /* MovesViewController.xib */; };
+		3222694C25BC572F0088F8DD /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222694A25BC572F0088F8DD /* ItemsViewController.swift */; };
+		3222694D25BC572F0088F8DD /* ItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3222694B25BC572F0088F8DD /* ItemsViewController.xib */; };
+		3222695125BC57510088F8DD /* PokemonsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222695025BC57510088F8DD /* PokemonsCoordinator.swift */; };
+		3222695525BC577B0088F8DD /* MovesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222695425BC577B0088F8DD /* MovesCoordinator.swift */; };
+		3222695925BC578E0088F8DD /* ItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222695825BC578E0088F8DD /* ItemsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +47,15 @@
 		3222690A25BC4C040088F8DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3222693425BC50870088F8DD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		3222693825BC50930088F8DD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		3222693E25BC56F60088F8DD /* PokemonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonsViewController.swift; sourceTree = "<group>"; };
+		3222693F25BC56F60088F8DD /* PokemonsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonsViewController.xib; sourceTree = "<group>"; };
+		3222694425BC57190088F8DD /* MovesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesViewController.swift; sourceTree = "<group>"; };
+		3222694525BC57190088F8DD /* MovesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovesViewController.xib; sourceTree = "<group>"; };
+		3222694A25BC572F0088F8DD /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		3222694B25BC572F0088F8DD /* ItemsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsViewController.xib; sourceTree = "<group>"; };
+		3222695025BC57510088F8DD /* PokemonsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonsCoordinator.swift; sourceTree = "<group>"; };
+		3222695425BC577B0088F8DD /* MovesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesCoordinator.swift; sourceTree = "<group>"; };
+		3222695825BC578E0088F8DD /* ItemsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +124,9 @@
 			children = (
 				3222693825BC50930088F8DD /* Coordinator.swift */,
 				3222693425BC50870088F8DD /* AppCoordinator.swift */,
+				3222695025BC57510088F8DD /* PokemonsCoordinator.swift */,
+				3222695425BC577B0088F8DD /* MovesCoordinator.swift */,
+				3222695825BC578E0088F8DD /* ItemsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -120,6 +141,12 @@
 		3222693225BC504B0088F8DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3222693E25BC56F60088F8DD /* PokemonsViewController.swift */,
+				3222693F25BC56F60088F8DD /* PokemonsViewController.xib */,
+				3222694425BC57190088F8DD /* MovesViewController.swift */,
+				3222694525BC57190088F8DD /* MovesViewController.xib */,
+				3222694A25BC572F0088F8DD /* ItemsViewController.swift */,
+				3222694B25BC572F0088F8DD /* ItemsViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				322268FE25BC4C040088F8DD /* LaunchScreen.storyboard in Resources */,
+				3222694725BC57190088F8DD /* MovesViewController.xib in Resources */,
+				3222694125BC56F60088F8DD /* PokemonsViewController.xib in Resources */,
+				3222694D25BC572F0088F8DD /* ItemsViewController.xib in Resources */,
 				322268FB25BC4C040088F8DD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +264,12 @@
 				3222693525BC50870088F8DD /* AppCoordinator.swift in Sources */,
 				322268F225BC4C030088F8DD /* AppDelegate.swift in Sources */,
 				322268F425BC4C030088F8DD /* SceneDelegate.swift in Sources */,
+				3222695125BC57510088F8DD /* PokemonsCoordinator.swift in Sources */,
+				3222694C25BC572F0088F8DD /* ItemsViewController.swift in Sources */,
+				3222695525BC577B0088F8DD /* MovesCoordinator.swift in Sources */,
+				3222694025BC56F60088F8DD /* PokemonsViewController.swift in Sources */,
+				3222694625BC57190088F8DD /* MovesViewController.swift in Sources */,
+				3222695925BC578E0088F8DD /* ItemsCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
