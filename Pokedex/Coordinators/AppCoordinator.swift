@@ -26,10 +26,15 @@ class AppCoordinator: Coordinator {
 
         let pokemonsNavigationController = UINavigationController()
         pokemonsNavigationController.tabBarItem = UITabBarItem(title: "Pokemon", image: UIImage(named: "pokemons-icon"), selectedImage: nil)
+        pokemonsNavigationController.navigationBar.isHidden = true
+
         let movesNavigationController = UINavigationController()
         movesNavigationController.tabBarItem = UITabBarItem(title: "Moves", image: UIImage(named: "moves-icon"), selectedImage: nil)
+        movesNavigationController.navigationBar.isHidden = true
+
         let itemsNavigationController = UINavigationController()
         itemsNavigationController.tabBarItem = UITabBarItem(title: "Items", image: UIImage(named: "items-icon"), selectedImage: nil)
+        itemsNavigationController.navigationBar.isHidden = true
 
         tabBarController.tabBar.tintColor = .black
         tabBarController.viewControllers = [pokemonsNavigationController, movesNavigationController, itemsNavigationController]
