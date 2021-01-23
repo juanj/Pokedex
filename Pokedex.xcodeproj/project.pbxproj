@@ -12,6 +12,8 @@
 		322268FB25BC4C040088F8DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322268FA25BC4C040088F8DD /* Assets.xcassets */; };
 		322268FE25BC4C040088F8DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 322268FC25BC4C040088F8DD /* LaunchScreen.storyboard */; };
 		3222690925BC4C040088F8DD /* PokedexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222690825BC4C040088F8DD /* PokedexTests.swift */; };
+		3222693525BC50870088F8DD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222693425BC50870088F8DD /* AppCoordinator.swift */; };
+		3222693925BC50930088F8DD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222693825BC50930088F8DD /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		3222690425BC4C040088F8DD /* PokedexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokedexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3222690825BC4C040088F8DD /* PokedexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexTests.swift; sourceTree = "<group>"; };
 		3222690A25BC4C040088F8DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3222693425BC50870088F8DD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3222693825BC50930088F8DD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,10 @@
 		322268F025BC4C030088F8DD /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				3222693025BC50300088F8DD /* Coordinators */,
+				3222693125BC50400088F8DD /* Networking */,
+				3222693225BC504B0088F8DD /* Views */,
+				3222693325BC50550088F8DD /* View Models */,
 				322268F125BC4C030088F8DD /* AppDelegate.swift */,
 				322268F325BC4C030088F8DD /* SceneDelegate.swift */,
 				322268FA25BC4C040088F8DD /* Assets.xcassets */,
@@ -91,6 +99,36 @@
 				3222690A25BC4C040088F8DD /* Info.plist */,
 			);
 			path = PokedexTests;
+			sourceTree = "<group>";
+		};
+		3222693025BC50300088F8DD /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				3222693825BC50930088F8DD /* Coordinator.swift */,
+				3222693425BC50870088F8DD /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		3222693125BC50400088F8DD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3222693225BC504B0088F8DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3222693325BC50550088F8DD /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +230,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3222693925BC50930088F8DD /* Coordinator.swift in Sources */,
+				3222693525BC50870088F8DD /* AppCoordinator.swift in Sources */,
 				322268F225BC4C030088F8DD /* AppDelegate.swift in Sources */,
 				322268F425BC4C030088F8DD /* SceneDelegate.swift in Sources */,
 			);
