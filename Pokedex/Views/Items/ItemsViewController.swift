@@ -22,6 +22,7 @@ class ItemsViewController: UIViewController {
     func setItems(_ items: [ItemCellViewModel]) {
         self.items = items
 
+        // If the data is fetch form the cache, there is a small chance that this method is called before the view is loaded
         if tableView != nil {
             tableView.reloadData()
         }

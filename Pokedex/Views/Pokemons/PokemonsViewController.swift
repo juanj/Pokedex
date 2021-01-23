@@ -36,7 +36,11 @@ class PokemonsViewController: UIViewController {
 
     func addPokemons(_ pokemons: [PokemonCellViewModel]) {
         self.pokemons.append(contentsOf: pokemons)
-        tableView.reloadData()
+
+        // If the data is fetch form the cache, there is a small chance that this method is called before the view is loaded
+        if tableView != nil {
+            tableView.reloadData()
+        }
     }
 
     private func configureTableView() {
