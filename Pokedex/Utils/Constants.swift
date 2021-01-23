@@ -10,5 +10,6 @@ import Foundation
 struct Constants {
     struct CellIds {
         static let pokemonCell = "pokemonCellId"
+        static let moveCell = "moveCellId"
     }
 }
