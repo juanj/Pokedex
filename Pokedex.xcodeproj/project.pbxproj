@@ -27,6 +27,14 @@
 		3222696325BC5ADB0088F8DD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222696225BC5ADB0088F8DD /* Colors.swift */; };
 		3222696725BC5FD10088F8DD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222696625BC5FD10088F8DD /* Fonts.swift */; };
 		3222696B25BC76350088F8DD /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222696A25BC76350088F8DD /* GradientView.swift */; };
+		3222696F25BC7D3F0088F8DD /* PaginatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222696E25BC7D3F0088F8DD /* PaginatedResponse.swift */; };
+		3222697425BC7DF00088F8DD /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222697325BC7DF00088F8DD /* Pokemon.swift */; };
+		3222697A25BC81260088F8DD /* PokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222697925BC81260088F8DD /* PokemonType.swift */; };
+		3222697F25BC82CC0088F8DD /* NamedRefType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222697E25BC82CC0088F8DD /* NamedRefType.swift */; };
+		3222698525BC83730088F8DD /* PokemonAbility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222698425BC83730088F8DD /* PokemonAbility.swift */; };
+		3222698925BC83E60088F8DD /* PokemonMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222698825BC83E60088F8DD /* PokemonMove.swift */; };
+		3222698D25BC84220088F8DD /* PokemonSprites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222698C25BC84220088F8DD /* PokemonSprites.swift */; };
+		3222699125BC844D0088F8DD /* PokemonStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222699025BC844D0088F8DD /* PokemonStat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +72,14 @@
 		3222696225BC5ADB0088F8DD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3222696625BC5FD10088F8DD /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		3222696A25BC76350088F8DD /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		3222696E25BC7D3F0088F8DD /* PaginatedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResponse.swift; sourceTree = "<group>"; };
+		3222697325BC7DF00088F8DD /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		3222697925BC81260088F8DD /* PokemonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonType.swift; sourceTree = "<group>"; };
+		3222697E25BC82CC0088F8DD /* NamedRefType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedRefType.swift; sourceTree = "<group>"; };
+		3222698425BC83730088F8DD /* PokemonAbility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAbility.swift; sourceTree = "<group>"; };
+		3222698825BC83E60088F8DD /* PokemonMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonMove.swift; sourceTree = "<group>"; };
+		3222698C25BC84220088F8DD /* PokemonSprites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSprites.swift; sourceTree = "<group>"; };
+		3222699025BC844D0088F8DD /* PokemonStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +123,7 @@
 			children = (
 				3222693025BC50300088F8DD /* Coordinators */,
 				3222693125BC50400088F8DD /* Networking */,
+				3222697225BC7DE20088F8DD /* Model */,
 				3222693225BC504B0088F8DD /* Views */,
 				3222693325BC50550088F8DD /* View Models */,
 				3222696125BC5ACE0088F8DD /* Utils */,
@@ -143,6 +160,7 @@
 		3222693125BC50400088F8DD /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3222696E25BC7D3F0088F8DD /* PaginatedResponse.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -184,6 +202,20 @@
 				3222696625BC5FD10088F8DD /* Fonts.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		3222697225BC7DE20088F8DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3222697E25BC82CC0088F8DD /* NamedRefType.swift */,
+				3222697325BC7DF00088F8DD /* Pokemon.swift */,
+				3222697925BC81260088F8DD /* PokemonType.swift */,
+				3222698425BC83730088F8DD /* PokemonAbility.swift */,
+				3222698825BC83E60088F8DD /* PokemonMove.swift */,
+				3222698C25BC84220088F8DD /* PokemonSprites.swift */,
+				3222699025BC844D0088F8DD /* PokemonStat.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +321,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3222693925BC50930088F8DD /* Coordinator.swift in Sources */,
+				3222697A25BC81260088F8DD /* PokemonType.swift in Sources */,
+				3222698525BC83730088F8DD /* PokemonAbility.swift in Sources */,
+				3222697425BC7DF00088F8DD /* Pokemon.swift in Sources */,
+				3222698925BC83E60088F8DD /* PokemonMove.swift in Sources */,
+				3222697F25BC82CC0088F8DD /* NamedRefType.swift in Sources */,
 				3222696325BC5ADB0088F8DD /* Colors.swift in Sources */,
+				3222699125BC844D0088F8DD /* PokemonStat.swift in Sources */,
 				3222696725BC5FD10088F8DD /* Fonts.swift in Sources */,
 				3222693525BC50870088F8DD /* AppCoordinator.swift in Sources */,
 				3222696B25BC76350088F8DD /* GradientView.swift in Sources */,
@@ -302,6 +340,8 @@
 				3222694025BC56F60088F8DD /* PokemonsViewController.swift in Sources */,
 				3222694625BC57190088F8DD /* MovesViewController.swift in Sources */,
 				3222695925BC578E0088F8DD /* ItemsCoordinator.swift in Sources */,
+				3222696F25BC7D3F0088F8DD /* PaginatedResponse.swift in Sources */,
+				3222698D25BC84220088F8DD /* PokemonSprites.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
