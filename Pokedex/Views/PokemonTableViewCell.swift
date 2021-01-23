@@ -28,5 +28,15 @@ class PokemonTableViewCell: UITableViewCell {
         pokemonNameLabel.text = viewModel.name
         pokemonNumberLabel.text = viewModel.number
         viewModel.loadImage(into: pokemonImageView)
+
+        for typeImage in viewModel.types {
+            let imageView = UIImageView()
+            imageView.image = typeImage
+            imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            typesStackView.addArrangedSubview(imageView)
+        }
+
+        typesStackView.isHidden = viewModel.types.count == 0
     }
 }

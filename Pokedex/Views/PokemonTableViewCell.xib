@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="19v-y8-13L">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                        <rect key="frame" x="0.0" y="0.0" width="310" height="75"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nH2-Xg-yMk">
                                 <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
@@ -27,16 +27,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YYf-4q-hlI">
-                                <rect key="frame" x="85" y="13.5" width="235" height="48"/>
+                                <rect key="frame" x="85" y="13.5" width="225" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmk-kf-kwg">
-                                        <rect key="frame" x="0.0" y="0.0" width="235" height="27.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="225" height="27.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <color key="highlightedColor" name="TextColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrn-6W-ZER">
-                                        <rect key="frame" x="0.0" y="27.5" width="235" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="225" height="20.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                         <color key="textColor" name="SubtitleColor"/>
                                         <nil key="highlightedColor"/>
@@ -44,13 +44,13 @@
                                 </subviews>
                             </stackView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QaO-Xw-dcY">
-                                <rect key="frame" x="320" y="0.0" width="0.0" height="75"/>
+                                <rect key="frame" x="310" y="0.0" width="0.0" height="75"/>
                             </stackView>
                         </subviews>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="19v-y8-13L" secondAttribute="trailing" id="Fb5-y5-0ca"/>
+                    <constraint firstAttribute="trailing" secondItem="19v-y8-13L" secondAttribute="trailing" constant="10" id="Fb5-y5-0ca"/>
                     <constraint firstItem="19v-y8-13L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="OKB-9n-56e"/>
                     <constraint firstItem="19v-y8-13L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WeK-Cd-Bij"/>
                     <constraint firstAttribute="bottom" secondItem="19v-y8-13L" secondAttribute="bottom" id="tQ7-tw-KcT"/>

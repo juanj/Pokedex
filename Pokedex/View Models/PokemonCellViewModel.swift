@@ -21,8 +21,9 @@ extension PokemonCellViewModel {
         pokemon.name.capitalized
     }
 
-    var types: [String] {
+    var types: [UIImage] {
         pokemon.types.map(\.name)
+            .compactMap { UIImage(named: "\($0)-type-icon") }
     }
 
     func loadImage(into imageView: UIImageView) {
