@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovesViewController" customModule="Pokedex" customModuleProvider="target">
             <connections>
                 <outlet property="navigationBar" destination="fZW-Fh-vJG" id="27d-WP-wJG"/>
+                <outlet property="tableView" destination="E67-fL-RlS" id="6UG-kQ-yg0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,25 +22,44 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZW-Fh-vJG" customClass="NavigationBar" customModule="Pokedex" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGray2Color"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" placeholder="YES" id="WI0-hd-h9v"/>
                     </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E67-fL-RlS">
+                    <rect key="frame" x="0.0" y="100" width="414" height="758"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIb-mv-q61" customClass="GradientView" customModule="Pokedex" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="858" width="414" height="38"/>
+                    <color key="backgroundColor" systemColor="systemGray2Color"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="E67-fL-RlS" firstAttribute="top" secondItem="fZW-Fh-vJG" secondAttribute="bottom" id="3to-OQ-wzz"/>
                 <constraint firstItem="fZW-Fh-vJG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="970-g2-NAf"/>
+                <constraint firstAttribute="trailing" secondItem="LIb-mv-q61" secondAttribute="trailing" id="F17-er-Zs3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="E67-fL-RlS" secondAttribute="trailing" id="JUp-Fm-Z8z"/>
                 <constraint firstItem="fZW-Fh-vJG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MFt-xE-Ve5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="E67-fL-RlS" secondAttribute="bottom" constant="4" id="MRj-sC-AKl"/>
+                <constraint firstAttribute="bottom" secondItem="LIb-mv-q61" secondAttribute="bottom" id="MZS-Nz-tqJ"/>
+                <constraint firstItem="LIb-mv-q61" firstAttribute="top" secondItem="E67-fL-RlS" secondAttribute="bottom" id="aX8-rM-FzB"/>
+                <constraint firstItem="E67-fL-RlS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="i2y-S5-wNY"/>
+                <constraint firstItem="LIb-mv-q61" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lVk-Tb-3sg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fZW-Fh-vJG" secondAttribute="trailing" id="wQ1-LX-kS3"/>
             </constraints>
-            <point key="canvasLocation" x="142" y="143"/>
+            <point key="canvasLocation" x="140.57971014492756" y="141.96428571428569"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

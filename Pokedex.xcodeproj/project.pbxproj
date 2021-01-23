@@ -26,6 +26,7 @@
 		3222695E25BC595C0088F8DD /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222695D25BC595C0088F8DD /* NavigationBar.swift */; };
 		3222696325BC5ADB0088F8DD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222696225BC5ADB0088F8DD /* Colors.swift */; };
 		3222696725BC5FD10088F8DD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222696625BC5FD10088F8DD /* Fonts.swift */; };
+		3222696B25BC76350088F8DD /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222696A25BC76350088F8DD /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		3222695D25BC595C0088F8DD /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		3222696225BC5ADB0088F8DD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3222696625BC5FD10088F8DD /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		3222696A25BC76350088F8DD /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				3222695D25BC595C0088F8DD /* NavigationBar.swift */,
+				3222696A25BC76350088F8DD /* GradientView.swift */,
 			);
 			path = "Custom views";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				3222696325BC5ADB0088F8DD /* Colors.swift in Sources */,
 				3222696725BC5FD10088F8DD /* Fonts.swift in Sources */,
 				3222693525BC50870088F8DD /* AppCoordinator.swift in Sources */,
+				3222696B25BC76350088F8DD /* GradientView.swift in Sources */,
 				322268F225BC4C030088F8DD /* AppDelegate.swift in Sources */,
 				322268F425BC4C030088F8DD /* SceneDelegate.swift in Sources */,
 				3222695125BC57510088F8DD /* PokemonsCoordinator.swift in Sources */,

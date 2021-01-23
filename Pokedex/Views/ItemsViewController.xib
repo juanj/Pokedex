@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemsViewController" customModule="Pokedex" customModuleProvider="target">
             <connections>
                 <outlet property="navigationBar" destination="s3e-hz-ANc" id="dTk-zc-fFy"/>
+                <outlet property="tableView" destination="pcB-fM-01T" id="8jl-9g-yXg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,25 +22,44 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3e-hz-ANc" customClass="NavigationBar" customModule="Pokedex" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGray2Color"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" placeholder="YES" id="aLn-Xb-cIO"/>
                     </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pcB-fM-01T">
+                    <rect key="frame" x="0.0" y="100" width="414" height="758"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56F-Ml-db6" customClass="GradientView" customModule="Pokedex" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="858" width="414" height="38"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pcB-fM-01T" secondAttribute="bottom" constant="4" id="7Ak-XW-0gT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="s3e-hz-ANc" secondAttribute="trailing" id="Cy0-9n-ziY"/>
+                <constraint firstItem="56F-Ml-db6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KEe-hF-atD"/>
+                <constraint firstItem="pcB-fM-01T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Qn6-7U-CSu"/>
+                <constraint firstItem="56F-Ml-db6" firstAttribute="top" secondItem="pcB-fM-01T" secondAttribute="bottom" id="clB-ka-j5j"/>
+                <constraint firstAttribute="trailing" secondItem="56F-Ml-db6" secondAttribute="trailing" id="eL7-1q-FTA"/>
                 <constraint firstItem="s3e-hz-ANc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gVc-io-cBB"/>
                 <constraint firstItem="s3e-hz-ANc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hLX-iN-gle"/>
+                <constraint firstItem="pcB-fM-01T" firstAttribute="top" secondItem="s3e-hz-ANc" secondAttribute="bottom" id="wEC-uZ-Sxl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pcB-fM-01T" secondAttribute="trailing" id="xEd-ZT-5CF"/>
+                <constraint firstAttribute="bottom" secondItem="56F-Ml-db6" secondAttribute="bottom" id="yAX-KZ-5vu"/>
             </constraints>
-            <point key="canvasLocation" x="140.57971014492756" y="142.63392857142856"/>
+            <point key="canvasLocation" x="140.57971014492756" y="141.96428571428569"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
