@@ -1,5 +1,5 @@
 //
-//  FlavorText.swift
+//  MoveFlavorText.swift
 //  Pokedex
 //
 //  Created by Juan on 23/01/21.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct FlavorText {
+struct MoveFlavorText {
     let text: String
     let language: String
     let game: String
 }
 
-extension FlavorText: Decodable {
+extension MoveFlavorText: Decodable {
     enum CodingKeys: String, CodingKey {
         case flavorText = "flavor_text"
         case versionGroup = "version_group"

@@ -13,7 +13,7 @@ struct Move {
     let pp: Int
     let power: Int
     let type: String
-    let texts: [FlavorText]
+    let texts: [MoveFlavorText]
     let names: [Name]
 }
 
@@ -32,7 +32,7 @@ extension Move: Decodable {
         let typeContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .type)
         type = try typeContainer.decode(String.self, forKey: .name)
 
-        texts = try container.decode([FlavorText].self, forKey: .flavorTextEntries)
+        texts = try container.decode([MoveFlavorText].self, forKey: .flavorTextEntries)
         names = try container.decode([Name].self, forKey: .names)
     }
 }
