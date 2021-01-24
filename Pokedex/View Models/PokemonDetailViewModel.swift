@@ -10,6 +10,17 @@ import UIKit
 
 struct PokemonDetailViewModel {
     let pokemon: Pokemon
+
+    private func addEvolutions(_ evolutions: inout [PokemonEvolutionCellViewModel], _ link: ChainLink) {
+        guard let pokemon = link.species.ref?.varieties.first(where: { $0.isDefault })?.pokemon.ref else { return }
+        for evolvesTo in link.evolvesTo {
+            if let toPokemon = evolvesTo.species.ref?.varieties.first(where: { $0.isDefault })?.pokemon.ref {
+                let evolution = PokemonEvolutionCellViewModel(fromPokemon: pokemon, toPokemon: toPokemon, detailts: evolvesTo.evolutionDetails)
+                evolutions.append(evolution)
+            }
+            addEvolutions(&evolutions, evolvesTo)
+        }
+    }
 }
 
 extension PokemonDetailViewModel {
@@ -33,6 +44,14 @@ extension PokemonDetailViewModel {
 
     var abilities: [PokemonAbilityCellViewModel] {
         pokemon.abilities.map { PokemonAbilityCellViewModel(ability: $0) }
+    }
+
+    var evolutions: [PokemonEvolutionCellViewModel] {
+        var evolutions = [PokemonEvolutionCellViewModel]()
+        if let firstLink = pokemon.species.ref?.evolutionChain.ref?.chain {
+            addEvolutions(&evolutions, firstLink)
+        }
+        return evolutions
     }
 
     var moves: [PokemonMoveCellViewModel] {

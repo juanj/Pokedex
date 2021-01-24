@@ -15,7 +15,8 @@ struct PokemonSpecies {
     let generation: NamedRefType<Generation>
     let eggGroups: [NamedRefType<EggGroup>]
     let texts: [FlavorText]
-    //let evolutionChain: RefType<EvolutionChain>
+    let evolutionChain: RefType<EvolutionChain>
+    let varieties: [PokemonSpeciesVariety]
 }
 
 extension PokemonSpecies: Decodable {
@@ -24,8 +25,8 @@ extension PokemonSpecies: Decodable {
         case captureRate = "capture_rate"
         case hatchCounter = "hatch_counter"
         case eggGroups = "egg_groups"
-        //case evolutionChain = "evolution_chain"
+        case evolutionChain = "evolution_chain"
         case texts = "flavor_text_entries"
-        case habitat, generation
+        case habitat, generation, varieties
     }
 }

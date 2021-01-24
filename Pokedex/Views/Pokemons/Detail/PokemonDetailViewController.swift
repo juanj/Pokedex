@@ -69,6 +69,7 @@ class PokemonDetailViewController: UIViewController {
         tableView.register(UINib(nibName: "PokemonInfoTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.infoCell)
         tableView.register(UINib(nibName: "PokemonSelecSectionTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.sectionCell)
         tableView.register(UINib(nibName: "PokemonMoveTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonMoveCell)
+        tableView.register(UINib(nibName: "PokemonEvolutionTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonEvolutionCell)
     }
 
     private func loadData() {
@@ -159,7 +160,7 @@ extension PokemonDetailViewController: UITableViewDataSource {
                     }
                 }
             case .evolutions:
-                return 0
+                return viewModel.evolutions.count
             case .moves:
                 return viewModel.moves.count
             }
@@ -189,6 +190,12 @@ extension PokemonDetailViewController: UITableViewDataSource {
             }
         } else {
             switch selectedSection {
+            case .evolutions:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.pokemonEvolutionCell) as? PokemonEvolutionTableViewCell else {
+                    fatalError("Cannor dequeue cell with reusable identifier \(Constants.CellIds.pokemonEvolutionCell)")
+                }
+                cell.load(viewModel: viewModel.evolutions[indexPath.row])
+                return cell
             case .moves:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.pokemonMoveCell) as? PokemonMoveTableViewCell else {
                     fatalError("Cannor dequeue cell with reusable identifier \(Constants.CellIds.pokemonMoveCell)")

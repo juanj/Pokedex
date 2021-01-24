@@ -111,11 +111,41 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
     func didSelectPokemon(_ pokemonsViewController: PokemonsViewController, pokemon: Pokemon) {
         pokemonsViewController.startLoading()
         let group = DispatchGroup()
+
+        // Time to go for a deep dive!
+        // First fetch the pokemon species
         group.enter()
         pokemon.species.fetch {
-            group.leave()
+            // After that we need the evolution chain
+            pokemon.species.ref?.evolutionChain.fetch {
+                // This is a helper function to explore all evolutions and fetch each specias + default variety
+                func exploreEvolutions(_ chainLink: ChainLink) {
+                    group.enter()
+                    // Fetch species + default variety for this node
+                    chainLink.species.fetch {
+                        if let defaultVariaty = chainLink.species.ref?.varieties.first(where: { $0.isDefault }) {
+                            defaultVariaty.pokemon.fetch {
+                                group.leave()
+                            }
+                        } else {
+                            group.leave()
+                        }
+                    }
+
+                    // Explore next nodes
+                    for index in 0..<chainLink.evolvesTo.count {
+                        exploreEvolutions(chainLink.evolvesTo[index])
+                    }
+                }
+                // Kickstart the exploration
+                if let link = pokemon.species.ref?.evolutionChain.ref?.chain {
+                    exploreEvolutions(link)
+                }
+                group.leave()
+            }
         }
 
+        // Fetch all the moves
         for index in 0..<pokemon.moves.count {
             group.enter()
             pokemon.moves[index].move.fetch {
@@ -123,6 +153,7 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
             }
         }
 
+        // Only THEN we can continue
         group.notify(queue: .main) {
             pokemonsViewController.endLoading()
             let pokemonDetailViewController = PokemonDetailViewController(viewModel: PokemonDetailViewModel(pokemon: pokemon), delegate: self)
