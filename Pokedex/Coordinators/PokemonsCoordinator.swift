@@ -116,6 +116,13 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
             group.leave()
         }
 
+        for index in 0..<pokemon.moves.count {
+            group.enter()
+            pokemon.moves[index].move.fetch {
+                group.leave()
+            }
+        }
+
         group.notify(queue: .main) {
             let pokemonDetailViewController = PokemonDetailViewController(viewModel: PokemonDetailViewModel(pokemon: pokemon), delegate: self)
             pokemonDetailViewController.modalPresentationStyle = .fullScreen

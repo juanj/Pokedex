@@ -68,6 +68,7 @@ class PokemonDetailViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "test")
         tableView.register(UINib(nibName: "PokemonInfoTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.infoCell)
         tableView.register(UINib(nibName: "PokemonSelecSectionTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.sectionCell)
+        tableView.register(UINib(nibName: "PokemonMoveTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonMoveCell)
     }
 
     private func loadData() {
@@ -187,11 +188,20 @@ extension PokemonDetailViewController: UITableViewDataSource {
                 return cell
             }
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "test") else {
-                fatalError()
-            }
+            switch selectedSection {
+            case .moves:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.pokemonMoveCell) as? PokemonMoveTableViewCell else {
+                    fatalError("Cannor dequeue cell with reusable identifier \(Constants.CellIds.pokemonMoveCell)")
+                }
+                cell.load(viewModel: viewModel.moves[indexPath.row])
+                return cell
+            default:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "test") else {
+                    fatalError()
+                }
 
-            return cell
+                return cell
+            }
         }
     }
 }

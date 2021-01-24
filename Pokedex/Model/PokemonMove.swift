@@ -7,6 +7,14 @@
 
 import Foundation
 
-struct PokemonMove: Decodable {
+struct PokemonMove {
     let move: NamedRefType<Move>
+    let versionGroupDetails: [PokemonMoveVersion]
+}
+
+extension PokemonMove: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case move
+        case versionGroupDetails = "version_group_details"
+    }
 }

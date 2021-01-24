@@ -49,15 +49,18 @@ class PokemonSelecSectionTableViewCell: UITableViewCell {
     @IBAction func selectStats(_ sender: Any) {
         selection = .stats
         updateSelected()
+        delegate?.didSelect(self, section: .stats)
     }
 
     @IBAction func selectAvolutions(_ sender: Any) {
         selection = .evolutions
         updateSelected()
+        delegate?.didSelect(self, section: .evolutions)
     }
 
     @IBAction func selectMoves(_ sender: Any) {
         selection = .moves
         updateSelected()
+        delegate?.didSelect(self, section: .moves)
     }
 }

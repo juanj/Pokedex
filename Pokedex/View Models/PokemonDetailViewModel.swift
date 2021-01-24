@@ -36,8 +36,11 @@ extension PokemonDetailViewModel {
     }
 
     var moves: [PokemonMoveCellViewModel] {
-        pokemon.moves.compactMap(\.move.ref)
-            .map { PokemonMoveCellViewModel(move: $0) }
+        pokemon.moves.compactMap {
+            guard let move = $0.move.ref, let details = $0.versionGroupDetails.first else { return nil }
+            return PokemonMoveCellViewModel(move: move, level: details.levelLearnedAt)
+        }
+        .sorted { $0.level < $1.level }
     }
 
     func loadImage(into imageView: UIImageView) {
