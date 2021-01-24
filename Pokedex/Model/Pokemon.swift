@@ -13,6 +13,7 @@ struct Pokemon: Decodable {
     let abilities: [PokemonAbility]
     let moves: [PokemonMove]
     let sprites: PokemonSprites
-    // let stats: [PokemonStat]
+    let stats: [PokemonStat]
     let types: [PokemonType]
+    let species: NamedRefType<PokemonSpecies>
 }

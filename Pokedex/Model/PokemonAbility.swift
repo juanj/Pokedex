@@ -10,13 +10,12 @@ import Foundation
 struct PokemonAbility {
     let isHidden: Bool
     let slot: Int
-    // let ability: NamedRefType
+    let ability: NamedRefType<Ability>
 }
 
 extension PokemonAbility: Decodable {
     enum CodingKeys: String, CodingKey {
         case isHidden = "is_hidden"
-        case slot
-        // case ability
+        case slot, ability
     }
 }
