@@ -43,6 +43,7 @@ class ItemsViewController: UIViewController {
 
         configureNavigationBar()
         configureTableView()
+        configureKeyboard()
     }
 
     func addItems(_ items: [ItemCellViewModel]) {
@@ -80,6 +81,29 @@ class ItemsViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = 75
         tableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.itemCell)
+    }
+
+    private func configureKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTableInsets(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTableInsets(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func updateTableInsets(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        if notification.name == UIResponder.keyboardWillShowNotification,
+           let frame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: frame.cgRectValue.height, right: 0)
+        } else {
+            tableView.contentInset = .zero
+        }
+    }
+
+    @objc func hideKeyboard() {
+        view.endEditing(true)
     }
 
     @objc func search() {
