@@ -58,6 +58,9 @@
 		3247746925BCD72300D83813 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3247746725BCD72300D83813 /* ItemTableViewCell.swift */; };
 		3247746A25BCD72300D83813 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3247746825BCD72300D83813 /* ItemTableViewCell.xib */; };
 		3247747625BCDD7600D83813 /* VersionGroupFlavorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3247747525BCDD7600D83813 /* VersionGroupFlavorText.swift */; };
+		32A6AF9A25BD9FCC00BDCABB /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A6AF9825BD9FCC00BDCABB /* ItemDetailViewController.swift */; };
+		32A6AF9B25BD9FCC00BDCABB /* ItemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A6AF9925BD9FCC00BDCABB /* ItemDetailViewController.xib */; };
+		32A6AF9F25BDA62E00BDCABB /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A6AF9E25BDA62E00BDCABB /* ItemDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +129,9 @@
 		3247746725BCD72300D83813 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		3247746825BCD72300D83813 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		3247747525BCDD7600D83813 /* VersionGroupFlavorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionGroupFlavorText.swift; sourceTree = "<group>"; };
+		32A6AF9825BD9FCC00BDCABB /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		32A6AF9925BD9FCC00BDCABB /* ItemDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailViewController.xib; sourceTree = "<group>"; };
+		32A6AF9E25BDA62E00BDCABB /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +238,7 @@
 				3247741925BCA21F00D83813 /* PokemonCellViewModel.swift */,
 				3247744725BCCDEC00D83813 /* MoveCellViewModel.swift */,
 				3247746325BCD55B00D83813 /* ItemCellViewModel.swift */,
+				32A6AF9E25BDA62E00BDCABB /* ItemDetailViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -315,6 +322,8 @@
 				3222694B25BC572F0088F8DD /* ItemsViewController.xib */,
 				3247746725BCD72300D83813 /* ItemTableViewCell.swift */,
 				3247746825BCD72300D83813 /* ItemTableViewCell.xib */,
+				32A6AF9825BD9FCC00BDCABB /* ItemDetailViewController.swift */,
+				32A6AF9925BD9FCC00BDCABB /* ItemDetailViewController.xib */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -407,6 +416,7 @@
 				3222694125BC56F60088F8DD /* PokemonsViewController.xib in Resources */,
 				3222694D25BC572F0088F8DD /* ItemsViewController.xib in Resources */,
 				322268FB25BC4C040088F8DD /* Assets.xcassets in Resources */,
+				32A6AF9B25BD9FCC00BDCABB /* ItemDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +456,7 @@
 				3222693525BC50870088F8DD /* AppCoordinator.swift in Sources */,
 				3222696B25BC76350088F8DD /* GradientView.swift in Sources */,
 				322268F225BC4C030088F8DD /* AppDelegate.swift in Sources */,
+				32A6AF9F25BDA62E00BDCABB /* ItemDetailViewModel.swift in Sources */,
 				3247743925BCC4F900D83813 /* PokemonTableViewCell.swift in Sources */,
 				3247745125BCCFEF00D83813 /* MoveTableViewCell.swift in Sources */,
 				322268F425BC4C030088F8DD /* SceneDelegate.swift in Sources */,
@@ -456,6 +467,7 @@
 				3222695525BC577B0088F8DD /* MovesCoordinator.swift in Sources */,
 				3247745825BCD2FE00D83813 /* Name.swift in Sources */,
 				3247746425BCD55B00D83813 /* ItemCellViewModel.swift in Sources */,
+				32A6AF9A25BD9FCC00BDCABB /* ItemDetailViewController.swift in Sources */,
 				3222694025BC56F60088F8DD /* PokemonsViewController.swift in Sources */,
 				3247744225BCCD3600D83813 /* MoveListResource.swift in Sources */,
 				3222694625BC57190088F8DD /* MovesViewController.swift in Sources */,

@@ -106,4 +106,16 @@ extension ItemsCoordinator: ItemsViewControllerDelegate {
             self.isLoadingItems = false
         }
     }
+
+    func didSelectItem(_ itemsViewController: ItemsViewController, item: Item) {
+        let itemDetailViewController = ItemDetailViewController(viewModel: ItemDetailViewModel(item: item), delegate: self)
+        itemDetailViewController.modalPresentationStyle = .fullScreen
+        navigationController.present(itemDetailViewController, animated: true, completion: nil)
+    }
+}
+
+extension ItemsCoordinator: ItemDetailViewControllerDelegate {
+    func didTapDismiss(_ itemDetailViewController: ItemDetailViewController) {
+        navigationController.dismiss(animated: true, completion: nil)
+    }
 }

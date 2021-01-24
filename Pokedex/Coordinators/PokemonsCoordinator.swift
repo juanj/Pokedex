@@ -107,4 +107,8 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
             self.isLoadingPokemons = false
         }
     }
+
+    func didSelectPokemon(_ pokemonsViewController: PokemonsViewController, pokemon: Pokemon) {
+        
+    }
 }

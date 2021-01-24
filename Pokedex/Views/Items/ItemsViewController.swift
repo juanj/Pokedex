@@ -10,6 +10,7 @@ import UIKit
 protocol ItemsViewControllerDelegate: AnyObject {
     func loadMoreItems(_ itemsViewController: ItemsViewController)
     func loadSearch(_ itemsViewController: ItemsViewController, query: String)
+    func didSelectItem(_ itemsViewController: ItemsViewController, item: Item)
 }
 
 class ItemsViewController: UIViewController {
@@ -65,6 +66,7 @@ class ItemsViewController: UIViewController {
     private func configureTableView() {
         tableView.dataSource = self
         tableView.prefetchDataSource = self
+        tableView.delegate = self
         tableView.rowHeight = 75
         tableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.itemCell)
     }
@@ -96,6 +98,17 @@ extension ItemsViewController: UITableViewDataSource {
         }
 
         return cell
+    }
+}
+
+extension ItemsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isSearching {
+            delegate?.didSelectItem(self, item: searchResults[indexPath.row].item)
+        } else {
+            delegate?.didSelectItem(self, item: items[indexPath.row].item)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

@@ -12,7 +12,7 @@ class NavigationBar: UIView {
     private var backgroundLayer: CAGradientLayer = {
         let backgroundLayer = CAGradientLayer()
 
-        let colors: [UIColor] = [.darkBlue, .lightBlut, .darkGreen, .lightGreen]
+        let colors: [UIColor] = [.darkBlue, .lightBlue, .darkGreen, .lightGreen]
         backgroundLayer.colors = colors.map(\.cgColor)
         backgroundLayer.locations = [0, 0.33, 0.66, 1]
         backgroundLayer.transform = CATransform3DMakeRotation(-.pi / 2 , 0, 0, 1)

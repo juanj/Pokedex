@@ -25,6 +25,20 @@ class PokemonTableViewCell: UITableViewCell {
         }
     }
 
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        let duration: Double = animated ? 0.2 : 0
+        UIView.animate(withDuration: duration) {
+            self.backgroundColor = highlighted ? .lightBlue : .white
+        }
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        let duration: Double = animated ? 0.2 : 0
+        UIView.animate(withDuration: duration) {
+            self.backgroundColor = selected ? .lightBlue : .white
+        }
+    }
+
     func load(viewModel: PokemonCellViewModel, tag: Int) {
         pokemonImageView.tag = tag
         pokemonNameLabel.text = viewModel.name

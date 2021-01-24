@@ -106,4 +106,8 @@ extension MovesCoordinator: MovesViewControllerDelegate {
             self.isLoadingMoves = false
         }
     }
+
+    func didSelectMove(_ movesViewController: MovesViewController, move: Move) {
+        
+    }
 }

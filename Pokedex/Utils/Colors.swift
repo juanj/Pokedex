@@ -18,7 +18,9 @@ extension UIColor {
 
     static let textColor = colorOrFail("Text Color")
     static let darkBlue = colorOrFail("Dark Blue")
-    static let lightBlut = colorOrFail("Light Blue")
+    static let lightBlue = colorOrFail("Light Blue")
     static let darkGreen = colorOrFail("Dark Green")
     static let lightGreen = colorOrFail("Light Green")
+    static let pastelGreen = colorOrFail("Pastel Green")
+    static let aquamarineBlue = colorOrFail("Aquamarine Blue")
 }

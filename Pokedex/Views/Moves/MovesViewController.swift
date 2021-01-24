@@ -10,6 +10,7 @@ import UIKit
 protocol MovesViewControllerDelegate: AnyObject {
     func loadMoreMoves(_ movesViewController: MovesViewController)
     func loadSearch(_ movesViewController: MovesViewController, query: String)
+    func didSelectMove(_ movesViewController: MovesViewController, move: Move)
 }
 
 class MovesViewController: UIViewController {
@@ -65,6 +66,7 @@ class MovesViewController: UIViewController {
     private func configureTableView() {
         tableView.dataSource = self
         tableView.prefetchDataSource = self
+        tableView.delegate = self
         tableView.rowHeight = 75
         tableView.register(UINib(nibName: "MoveTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.moveCell)
     }
@@ -96,6 +98,17 @@ extension MovesViewController: UITableViewDataSource {
         }
 
         return cell
+    }
+}
+
+extension MovesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isSearching {
+            delegate?.didSelectMove(self, move: searchResults[indexPath.row].move)
+        } else {
+            delegate?.didSelectMove(self, move: moves[indexPath.row].move)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

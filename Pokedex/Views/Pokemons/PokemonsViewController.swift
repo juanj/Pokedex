@@ -10,6 +10,7 @@ import UIKit
 protocol PokemonsViewControllerDelegate: AnyObject {
     func loadMorePokemons(_ pokemonsViewController: PokemonsViewController)
     func loadSearch(_ pokemonsViewController: PokemonsViewController, query: String)
+    func didSelectPokemon(_ pokemonsViewController: PokemonsViewController, pokemon: Pokemon)
 }
 
 class PokemonsViewController: UIViewController {
@@ -65,6 +66,7 @@ class PokemonsViewController: UIViewController {
     private func configureTableView() {
         tableView.dataSource = self
         tableView.prefetchDataSource = self
+        tableView.delegate = self
         tableView.rowHeight = 75
         tableView.register(UINib(nibName: "PokemonTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonCell)
     }
@@ -96,6 +98,17 @@ extension PokemonsViewController: UITableViewDataSource {
         }
 
         return cell
+    }
+}
+
+extension PokemonsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isSearching {
+            delegate?.didSelectPokemon(self, pokemon: searchResults[indexPath.row].pokemon)
+        } else {
+            delegate?.didSelectPokemon(self, pokemon: pokemons[indexPath.row].pokemon)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
