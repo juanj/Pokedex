@@ -109,7 +109,7 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
     }
 
     func didSelectPokemon(_ pokemonsViewController: PokemonsViewController, pokemon: Pokemon) {
-        // TODO: Set loading
+        pokemonsViewController.startLoading()
         let group = DispatchGroup()
         group.enter()
         pokemon.species.fetch {
@@ -124,6 +124,7 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
         }
 
         group.notify(queue: .main) {
+            pokemonsViewController.endLoading()
             let pokemonDetailViewController = PokemonDetailViewController(viewModel: PokemonDetailViewModel(pokemon: pokemon), delegate: self)
             pokemonDetailViewController.modalPresentationStyle = .fullScreen
             self.navigationController.present(pokemonDetailViewController, animated: true, completion: nil)

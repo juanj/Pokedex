@@ -16,7 +16,8 @@ protocol PokemonsViewControllerDelegate: AnyObject {
 class PokemonsViewController: UIViewController {
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     private var pokemons = [PokemonCellViewModel]()
     private var searchResults = [PokemonCellViewModel]()
     private var isSearching: Bool {
@@ -57,6 +58,16 @@ class PokemonsViewController: UIViewController {
     func setSearchResults(_ searchResults: [PokemonCellViewModel]) {
         self.searchResults = searchResults
         tableView.reloadData()
+    }
+
+    func startLoading() {
+        activityIndicator.startAnimating()
+        view.isUserInteractionEnabled = false
+    }
+
+    func endLoading() {
+        activityIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true
     }
 
     private func configureNavigationBar() {

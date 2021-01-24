@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PokemonsViewController" customModule="Pokedex" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="UPn-sX-pD5" id="dUu-wI-MB5"/>
                 <outlet property="navigationBar" destination="Nb6-dp-vu1" id="Q18-6V-PsB"/>
                 <outlet property="tableView" destination="OCo-16-s8h" id="NZg-wG-JZp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,6 +36,9 @@
                     <rect key="frame" x="0.0" y="858" width="414" height="38"/>
                     <color key="backgroundColor" systemColor="systemGray2Color"/>
                 </view>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="UPn-sX-pD5">
+                    <rect key="frame" x="197" y="438" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <constraints>
@@ -45,6 +49,8 @@
                 <constraint firstItem="mJB-Vz-Ykq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hdh-4G-VyZ"/>
                 <constraint firstAttribute="trailing" secondItem="mJB-Vz-Ykq" secondAttribute="trailing" id="T2c-Li-VS0"/>
                 <constraint firstItem="Nb6-dp-vu1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XDM-83-noo"/>
+                <constraint firstItem="UPn-sX-pD5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="m18-If-f5S"/>
+                <constraint firstItem="UPn-sX-pD5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="m5c-Qk-I2q"/>
                 <constraint firstItem="mJB-Vz-Ykq" firstAttribute="top" secondItem="OCo-16-s8h" secondAttribute="bottom" id="phj-N2-Zfg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Nb6-dp-vu1" secondAttribute="trailing" id="rHb-cR-aEG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OCo-16-s8h" secondAttribute="bottom" constant="4" id="rRW-Bo-tHg"/>
