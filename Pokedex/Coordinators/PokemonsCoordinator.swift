@@ -14,6 +14,7 @@ class PokemonsCoordinator: Coordinator {
     private var isLoadingPokemons = false
     private var page = 1
     private var isLastPage = false
+    private var searchList = [NamedRefType<Pokemon>]()
 
     private let navigationController: UINavigationController
     init(navigationController: UINavigationController) {
@@ -26,6 +27,7 @@ class PokemonsCoordinator: Coordinator {
 
         self.pokemonsViewController = pokemonsViewController
         loadPokemons()
+        loadSearchList()
     }
 
     private func loadPokemons(page: Int = 0, pageSize: Int = 50) {
@@ -59,6 +61,22 @@ class PokemonsCoordinator: Coordinator {
         }
     }
 
+    private func loadSearchList() {
+        // There is no search endpoint because of performance reasons. https://github.com/PokeAPI/pokeapi/issues/474
+        // As a workaround, query the full list and use the name field to search
+        let pokemonsRequest = ApiRequest(resource: PokemonListResource(limit: 2000, offset: 0))
+        pokemonsRequest.load { result in
+            switch result {
+            case .success(let data):
+                self.searchList = data.results
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.show(error: error.localizedDescription)
+                }
+            }
+        }
+    }
+
     private func show(error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
@@ -71,5 +89,22 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
         guard !isLoadingPokemons && !isLastPage else { return }
         loadPokemons(page: page)
         page += 1
+    }
+
+    func loadSearch(_ pokemonsViewController: PokemonsViewController, query: String) {
+        let subSet = searchList.filter { $0.name.contains(query.lowercased().replacingOccurrences(of: " ", with: "-")) }
+        let group = DispatchGroup()
+        for index in 0..<subSet.count {
+            group.enter()
+            subSet[index].fetch {
+                group.leave()
+            }
+        }
+
+        group.notify(queue: .main) {
+            self.pokemonsViewController?.setSearchResults(subSet.compactMap(\.ref)
+                                                        .map { PokemonCellViewModel(pokemon: $0) })
+            self.isLoadingPokemons = false
+        }
     }
 }

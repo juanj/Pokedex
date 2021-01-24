@@ -15,6 +15,7 @@ class PokemonTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         pokemonImageView.image = nil
+        pokemonImageView.tag = -1
         pokemonNameLabel.text = ""
         pokemonNumberLabel.text = ""
 
@@ -24,10 +25,11 @@ class PokemonTableViewCell: UITableViewCell {
         }
     }
 
-    func load(viewModel: PokemonCellViewModel) {
+    func load(viewModel: PokemonCellViewModel, tag: Int) {
+        pokemonImageView.tag = tag
         pokemonNameLabel.text = viewModel.name
         pokemonNumberLabel.text = viewModel.number
-        viewModel.loadImage(into: pokemonImageView)
+        viewModel.loadImage(into: pokemonImageView, tag: pokemonImageView.tag)
 
         for typeImage in viewModel.types {
             let imageView = UIImageView()
