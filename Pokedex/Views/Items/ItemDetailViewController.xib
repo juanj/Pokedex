@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemDetailViewController" customModule="Pokedex" customModuleProvider="target">
             <connections>
+                <outlet property="attributesLabel" destination="msC-9R-1Jr" id="dPr-kl-kTr"/>
                 <outlet property="contentLabel" destination="PCB-gP-Xc6" id="b3h-bM-7wm"/>
                 <outlet property="contentView" destination="Ol4-A3-tNo" id="bYD-nm-Fxy"/>
                 <outlet property="gradientView" destination="hDB-Yo-ZeA" id="hyC-tr-VzH"/>
@@ -44,7 +45,7 @@
                     <rect key="frame" x="0.0" y="141" width="414" height="803"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MDl-bR-b4T">
-                            <rect key="frame" x="20" y="65" width="374" height="148.5"/>
+                            <rect key="frame" x="20" y="65" width="374" height="196"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kI-AC-Nmb">
                                     <rect key="frame" x="148.5" y="0.0" width="77.5" height="55"/>
@@ -66,8 +67,14 @@
                                         </imageView>
                                     </subviews>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCB-gP-Xc6">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msC-9R-1Jr">
                                     <rect key="frame" x="162.5" y="121" width="49" height="27.5"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                    <color key="textColor" name="TextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCB-gP-Xc6">
+                                    <rect key="frame" x="162.5" y="168.5" width="49" height="27.5"/>
                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                     <color key="textColor" name="TextColor"/>
                                     <nil key="highlightedColor"/>

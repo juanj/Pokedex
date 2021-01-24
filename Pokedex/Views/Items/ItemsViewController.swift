@@ -16,7 +16,8 @@ protocol ItemsViewControllerDelegate: AnyObject {
 class ItemsViewController: UIViewController {
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     private var items = [ItemCellViewModel]()
     private weak var delegate: ItemsViewControllerDelegate?
     private var searchResults = [ItemCellViewModel]()
@@ -56,6 +57,16 @@ class ItemsViewController: UIViewController {
     func setSearchResults(_ searchResults: [ItemCellViewModel]) {
         self.searchResults = searchResults
         tableView.reloadData()
+    }
+
+    func startLoading() {
+        activityIndicator.startAnimating()
+        view.isUserInteractionEnabled = false
+    }
+
+    func endLoading() {
+        activityIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true
     }
 
     private func configureNavigationBar() {

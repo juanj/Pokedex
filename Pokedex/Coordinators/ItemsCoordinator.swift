@@ -108,9 +108,21 @@ extension ItemsCoordinator: ItemsViewControllerDelegate {
     }
 
     func didSelectItem(_ itemsViewController: ItemsViewController, item: Item) {
-        let itemDetailViewController = ItemDetailViewController(viewModel: ItemDetailViewModel(item: item), delegate: self)
-        itemDetailViewController.modalPresentationStyle = .fullScreen
-        navigationController.present(itemDetailViewController, animated: true, completion: nil)
+        itemsViewController.startLoading()
+        let group = DispatchGroup()
+        for index in 0..<item.attributes.count {
+            group.enter()
+            item.attributes[index].fetch {
+                group.leave()
+            }
+        }
+
+        group.notify(queue: .main) {
+            itemsViewController.endLoading()
+            let itemDetailViewController = ItemDetailViewController(viewModel: ItemDetailViewModel(item: item), delegate: self)
+            itemDetailViewController.modalPresentationStyle = .fullScreen
+            self.navigationController.present(itemDetailViewController, animated: true, completion: nil)
+        }
     }
 }
 

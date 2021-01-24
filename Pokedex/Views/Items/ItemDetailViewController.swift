@@ -17,6 +17,7 @@ class ItemDetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var attributesLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
 
     private let viewModel: ItemDetailViewModel
@@ -52,6 +53,7 @@ class ItemDetailViewController: UIViewController {
         viewModel.loadImage(into: imageView)
         titleLabel.text = viewModel.title
         priceLabel.text = viewModel.price
+        attributesLabel.text = viewModel.attributes
         contentLabel.text = viewModel.description
     }
 

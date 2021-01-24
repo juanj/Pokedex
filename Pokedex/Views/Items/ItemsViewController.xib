@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemsViewController" customModule="Pokedex" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="YSg-HR-9kc" id="7dx-sT-6qj"/>
                 <outlet property="navigationBar" destination="s3e-hz-ANc" id="dTk-zc-fFy"/>
                 <outlet property="tableView" destination="pcB-fM-01T" id="8jl-9g-yXg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,13 +36,18 @@
                     <rect key="frame" x="0.0" y="858" width="414" height="38"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YSg-HR-9kc">
+                    <rect key="frame" x="197" y="438" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pcB-fM-01T" secondAttribute="bottom" constant="4" id="7Ak-XW-0gT"/>
+                <constraint firstItem="YSg-HR-9kc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ag8-dI-VUp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="s3e-hz-ANc" secondAttribute="trailing" id="Cy0-9n-ziY"/>
                 <constraint firstItem="56F-Ml-db6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KEe-hF-atD"/>
+                <constraint firstItem="YSg-HR-9kc" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="O99-ff-pGc"/>
                 <constraint firstItem="pcB-fM-01T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Qn6-7U-CSu"/>
                 <constraint firstItem="56F-Ml-db6" firstAttribute="top" secondItem="pcB-fM-01T" secondAttribute="bottom" id="clB-ka-j5j"/>
                 <constraint firstAttribute="trailing" secondItem="56F-Ml-db6" secondAttribute="trailing" id="eL7-1q-FTA"/>

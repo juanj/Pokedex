@@ -13,11 +13,12 @@ struct Item {
     let texts: [VersionGroupFlavorText]
     let names: [Name]
     let sprite: String?
+    let attributes: [NamedRefType<ItemAttribute>]
 }
 
 extension Item: Decodable {
     enum CodingKeys: String, CodingKey {
-        case name, cost, names, sprites, `default`
+        case name, cost, names, sprites, `default`, attributes
         case flavorTextEntries = "flavor_text_entries"
     }
     init(from decoder: Decoder) throws {
@@ -29,5 +30,7 @@ extension Item: Decodable {
 
         let spritesContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .sprites)
         sprite = try? spritesContainer.decode(String.self, forKey: .default)
+
+        attributes = try container.decode([NamedRefType<ItemAttribute>].self, forKey: .attributes)
     }
 }

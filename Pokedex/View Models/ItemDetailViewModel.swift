@@ -25,6 +25,13 @@ extension ItemDetailViewModel {
         "\(item.cost)"
     }
 
+    var attributes: String {
+        item.attributes
+            .compactMap(\.ref?.descriptions)
+            .compactMap { $0.first { $0.language == "en" }?.description }
+            .joined(separator: ". ")
+    }
+
     var description: String? {
         if let text = item.texts.first(where: { $0.language == "en" }) {
             return text.text.replacingOccurrences(of: "\n", with: " ")
