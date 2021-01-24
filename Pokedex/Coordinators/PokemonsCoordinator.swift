@@ -109,8 +109,23 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
     }
 
     func didSelectPokemon(_ pokemonsViewController: PokemonsViewController, pokemon: Pokemon) {
-        let pokemonDetailViewController = PokemonDetailViewController()
-        pokemonDetailViewController.modalPresentationStyle = .fullScreen
-        navigationController.present(pokemonDetailViewController, animated: true, completion: nil)
+        // TODO: Set loading
+        let group = DispatchGroup()
+        group.enter()
+        pokemon.species.fetch {
+            group.leave()
+        }
+
+        group.notify(queue: .main) {
+            let pokemonDetailViewController = PokemonDetailViewController(viewModel: PokemonDetailViewModel(pokemon: pokemon), delegate: self)
+            pokemonDetailViewController.modalPresentationStyle = .fullScreen
+            self.navigationController.present(pokemonDetailViewController, animated: true, completion: nil)
+        }
+    }
+}
+
+extension PokemonsCoordinator: PokemonDetailViewControllerDelegate {
+    func didTapDismiss(_ pokemonDetailViewController: PokemonDetailViewController) {
+        navigationController.dismiss(animated: true, completion: nil)
     }
 }

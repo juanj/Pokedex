@@ -14,6 +14,7 @@ struct PokemonSpecies {
     let habitat: NamedRefType<PokemonHabitat>
     let generation: NamedRefType<Generation>
     let eggGroups: [NamedRefType<EggGroup>]
+    let texts: [FlavorText]
     //let evolutionChain: RefType<EvolutionChain>
 }
 
@@ -24,6 +25,7 @@ extension PokemonSpecies: Decodable {
         case hatchCounter = "hatch_counter"
         case eggGroups = "egg_groups"
         //case evolutionChain = "evolution_chain"
+        case texts = "flavor_text_entries"
         case habitat, generation
     }
 }

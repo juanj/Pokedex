@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PokemonDetailViewController" customModule="Pokedex" customModuleProvider="target">
             <connections>
-                <outlet property="bitTitleLabel" destination="SR8-wR-tnj" id="cYL-eB-IQI"/>
+                <outlet property="bigTitleLabel" destination="SR8-wR-tnj" id="qr3-nr-QLQ"/>
                 <outlet property="gradientView" destination="Tqk-gF-gga" id="Z3A-68-rQ3"/>
                 <outlet property="headerHeightConstraint" destination="9q4-NO-TKo" id="n6w-8k-ENK"/>
                 <outlet property="infoStackView" destination="3kW-SI-Wmt" id="Avn-Bf-x7G"/>
@@ -106,7 +106,7 @@
                         <constraint firstItem="JIY-sd-JR5" firstAttribute="leading" secondItem="Icq-lx-FdL" secondAttribute="leading" id="v0V-da-uyp"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Uv-AG-Dxk">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Uv-AG-Dxk">
                     <rect key="frame" x="0.0" y="384" width="414" height="512"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>

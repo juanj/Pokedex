@@ -7,11 +7,15 @@
 
 import UIKit
 
+protocol PokemonDetailViewControllerDelegate: AnyObject {
+    func didTapDismiss(_ pokemonDetailViewController: PokemonDetailViewController)
+}
+
 class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var gradientView: GradientView!
     @IBOutlet weak var pokemonImageView: UIImageView!
     @IBOutlet weak var whiteView: UIView!
-    @IBOutlet weak var bitTitleLabel: UILabel!
+    @IBOutlet weak var bigTitleLabel: UILabel!
     @IBOutlet weak var tagView: TypeTagView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
@@ -24,21 +28,54 @@ class PokemonDetailViewController: UIViewController {
     private var previousScrollOffset: CGFloat = 0
     private let whiteViewMaxHeight: CGFloat = 210
 
+    private var selectedSection: SelectedSection = .stats
+
+    private let viewModel: PokemonDetailViewModel
+    private weak var delegate: PokemonDetailViewControllerDelegate?
+    init(viewModel: PokemonDetailViewModel, delegate: PokemonDetailViewControllerDelegate) {
+        self.viewModel = viewModel
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureViewStyle()
         configureTableView()
+        loadData()
     }
 
     private func configureViewStyle() {
         whiteView.layer.cornerRadius = 48
+        pokemonImageView.layer.magnificationFilter = .nearest
+        pokemonImageView.layer.minificationFilter = .nearest
     }
 
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        registerCells()
+    }
+
+    private func registerCells() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "test")
+        tableView.register(UINib(nibName: "PokemonInfoTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.infoCell)
+    }
+
+    private func loadData() {
+        viewModel.loadImage(into: pokemonImageView)
+        smallTitleLabel.text = viewModel.title
+        bigTitleLabel.text = viewModel.title
+        if let theme = viewModel.theme {
+            gradientView.colors = theme.gradientColors
+            gradientView.locations = [0, 1]
+            tagView.theme = theme
+        }
     }
 
     private func progressCollapse(_ newHeight: CGFloat) {
@@ -53,7 +90,7 @@ class PokemonDetailViewController: UIViewController {
     }
 
     @IBAction func dismiss(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        delegate?.didTapDismiss(self)
     }
 }
 
@@ -94,15 +131,62 @@ extension PokemonDetailViewController: UITableViewDelegate {
 }
 
 extension PokemonDetailViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        switch selectedSection {
+        case .stats:
+            return StatsSections.allCases.count + 1
+        case .evolutions, .moves:
+            return 2
+        }
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        100
+        if section == 0 {
+            return 2
+        } else {
+            switch selectedSection {
+            case .stats:
+                if let subSection = StatsSections(rawValue: section) {
+                    switch subSection {
+                    case .stats, .weaknesses, .breeding, .capture, .sprites:
+                        return 1
+                    case .abilities:
+                        return viewModel.abilities.count
+                    }
+                }
+            case .evolutions:
+                return 0
+            case .moves:
+                return viewModel.moves.count
+            }
+        }
+        return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "test") else {
-            fatalError()
-        }
+        if indexPath.section == 0 {
+            // Info section
+            if indexPath.row == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.infoCell) as? PokemonInfoTableViewCell else {
+                    fatalError("Cannor dequeue cell with reusable identifier \(Constants.CellIds.infoCell)")
+                }
 
-        return cell
+                cell.descriptionLabel.text = viewModel.description
+
+                return cell
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "test") else {
+                    fatalError()
+                }
+
+                return cell
+            }
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "test") else {
+                fatalError()
+            }
+
+            return cell
+        }
     }
 }
