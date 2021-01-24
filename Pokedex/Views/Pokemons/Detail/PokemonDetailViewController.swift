@@ -59,12 +59,15 @@ class PokemonDetailViewController: UIViewController {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         registerCells()
     }
 
     private func registerCells() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "test")
         tableView.register(UINib(nibName: "PokemonInfoTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.infoCell)
+        tableView.register(UINib(nibName: "PokemonSelecSectionTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.sectionCell)
     }
 
     private func loadData() {
@@ -170,15 +173,17 @@ extension PokemonDetailViewController: UITableViewDataSource {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.infoCell) as? PokemonInfoTableViewCell else {
                     fatalError("Cannor dequeue cell with reusable identifier \(Constants.CellIds.infoCell)")
                 }
-
                 cell.descriptionLabel.text = viewModel.description
-
                 return cell
             } else {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "test") else {
-                    fatalError()
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.sectionCell) as? PokemonSelecSectionTableViewCell else {
+                    fatalError("Cannor dequeue cell with reusable identifier \(Constants.CellIds.sectionCell)")
                 }
-
+                if let theme = viewModel.theme {
+                    cell.theme = theme
+                }
+                cell.selection = selectedSection
+                cell.delegate = self
                 return cell
             }
         } else {
@@ -188,5 +193,12 @@ extension PokemonDetailViewController: UITableViewDataSource {
 
             return cell
         }
+    }
+}
+
+extension PokemonDetailViewController: PokemonSelecSectionTableViewCellDelegate {
+    func didSelect(_ pokemonSelecSectionTableViewCell: PokemonSelecSectionTableViewCell, section: SelectedSection) {
+        selectedSection = section
+        tableView.reloadData()
     }
 }
