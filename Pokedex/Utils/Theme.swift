@@ -9,32 +9,44 @@ import Foundation
 import UIKit
 
 struct Theme {
+    let name: String
     let primaryColor: UIColor
     let gradientColors: [UIColor]
 
-    init(type: String) {
-        primaryColor = UIColor.colorOrFail("\(type) Primary")
-        gradientColors = [UIColor.colorOrFail("\(type) Gradient 1"), UIColor.colorOrFail("\(type) Gradient 2")]
+    init?(type: String) {
+        name = type
+
+        if let primaryColor = UIColor(named: "\(type.capitalized) Primary") {
+            self.primaryColor = primaryColor
+        } else {
+            return nil
+        }
+
+        if let gradient1 = UIColor(named: "\(type.capitalized) Gradient 1"), let gradient2 = UIColor(named: "\(type.capitalized) Gradient 2") {
+            gradientColors = [gradient1, gradient2]
+        } else {
+            return nil
+        }
     }
 }
 
 extension Theme {
-    static let bug = Theme(type: "Bug")
-    static let dark = Theme(type: "Dark")
-    static let dragon = Theme(type: "Dragon")
-    static let electric = Theme(type: "Electric")
-    static let fairy = Theme(type: "Fairy")
-    static let fight = Theme(type: "Fight")
-    static let fire = Theme(type: "Fire")
-    static let flying = Theme(type: "Flying")
-    static let ghost = Theme(type: "Ghost")
-    static let grass = Theme(type: "Grass")
-    static let ground = Theme(type: "Ground")
-    static let ice = Theme(type: "Ice")
-    static let normal = Theme(type: "Normal")
-    static let poison = Theme(type: "Poison")
-    static let psychic = Theme(type: "Psychic")
-    static let rock = Theme(type: "Rock")
-    static let steel = Theme(type: "Steel")
-    static let water = Theme(type: "Water")
+    static let bug = Theme(type: "bug")
+    static let dark = Theme(type: "dark")
+    static let dragon = Theme(type: "dragon")
+    static let electric = Theme(type: "electric")
+    static let fairy = Theme(type: "fairy")
+    static let fight = Theme(type: "fight")
+    static let fire = Theme(type: "fire")
+    static let flying = Theme(type: "flying")
+    static let ghost = Theme(type: "ghost")
+    static let grass = Theme(type: "grass")
+    static let ground = Theme(type: "ground")
+    static let ice = Theme(type: "ice")
+    static let normal = Theme(type: "normal")
+    static let poison = Theme(type: "poison")
+    static let psychic = Theme(type: "psychic")
+    static let rock = Theme(type: "rock")
+    static let steel = Theme(type: "steel")
+    static let water = Theme(type: "water")
 }

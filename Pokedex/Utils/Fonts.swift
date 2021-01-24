@@ -18,4 +18,5 @@ extension UIFont {
 
     static func avenir(size: CGFloat) -> UIFont { fontOrFail("Avenir", size: size) }
     static func avenirMedium(size: CGFloat) -> UIFont { fontOrFail("Avenir Medium", size: size) }
+    static func avenirHeavy(size: CGFloat) -> UIFont { fontOrFail("Avenir Heavy", size: size) }
 }

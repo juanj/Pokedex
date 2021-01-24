@@ -108,6 +108,14 @@ extension MovesCoordinator: MovesViewControllerDelegate {
     }
 
     func didSelectMove(_ movesViewController: MovesViewController, move: Move) {
-        
+        let moveDetailViewController = MoveDetailViewController(viewModel: MoveDetailViewModel(move: move), delegate: self)
+        moveDetailViewController.modalPresentationStyle = .fullScreen
+        navigationController.present(moveDetailViewController, animated: true, completion: nil)
+    }
+}
+
+extension MovesCoordinator: MoveDetailViewControllerDelegate {
+    func didTapDismiss(_ moveDetailViewController: MoveDetailViewController) {
+        navigationController.dismiss(animated: true, completion: nil)
     }
 }
