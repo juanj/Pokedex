@@ -109,6 +109,8 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
     }
 
     func didSelectPokemon(_ pokemonsViewController: PokemonsViewController, pokemon: Pokemon) {
-        
+        let pokemonDetailViewController = PokemonDetailViewController()
+        pokemonDetailViewController.modalPresentationStyle = .fullScreen
+        navigationController.present(pokemonDetailViewController, animated: true, completion: nil)
     }
 }
