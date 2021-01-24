@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    private static func colorOrFail(_ name: String) -> UIColor {
+    static func colorOrFail(_ name: String) -> UIColor {
         guard let color = UIColor(named: name) else {
             fatalError("Cannot find color named \(name)")
         }
