@@ -9,6 +9,7 @@ import UIKit
 
 protocol ItemsViewControllerDelegate: AnyObject {
     func loadMoreItems(_ itemsViewController: ItemsViewController)
+    func loadSearch(_ itemsViewController: ItemsViewController, query: String)
 }
 
 class ItemsViewController: UIViewController {
@@ -17,6 +18,15 @@ class ItemsViewController: UIViewController {
 
     private var items = [ItemCellViewModel]()
     private weak var delegate: ItemsViewControllerDelegate?
+    private var searchResults = [ItemCellViewModel]()
+    private var isSearching: Bool {
+        if let text = navigationBar.searchTextField.text, !text.isEmpty {
+            return true
+        } else {
+            return false
+        }
+    }
+
     init(delegate: ItemsViewControllerDelegate) {
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
@@ -29,7 +39,7 @@ class ItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.titleLabel.text = "Items"
+        configureNavigationBar()
         configureTableView()
     }
 
@@ -42,17 +52,36 @@ class ItemsViewController: UIViewController {
         }
     }
 
+    func setSearchResults(_ searchResults: [ItemCellViewModel]) {
+        self.searchResults = searchResults
+        tableView.reloadData()
+    }
+
+    private func configureNavigationBar() {
+        navigationBar.titleLabel.text = "Items"
+        navigationBar.searchTextField.addTarget(self, action: #selector(search), for: .editingChanged)
+    }
+
     private func configureTableView() {
         tableView.dataSource = self
         tableView.prefetchDataSource = self
         tableView.rowHeight = 75
         tableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.itemCell)
     }
+
+    @objc func search() {
+        tableView.reloadData()
+        delegate?.loadSearch(self, query: navigationBar.searchTextField.text ?? "")
+    }
 }
 
 extension ItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count
+        if isSearching {
+            return searchResults.count
+        } else {
+            return items.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,7 +89,11 @@ extension ItemsViewController: UITableViewDataSource {
             fatalError("Cannot dequeue cell with reusable identifier \(Constants.CellIds.itemCell)")
         }
 
-        cell.load(viewModel: items[indexPath.row])
+        if isSearching {
+            cell.load(viewModel: searchResults[indexPath.row])
+        } else {
+            cell.load(viewModel: items[indexPath.row])
+        }
 
         return cell
     }
@@ -68,6 +101,7 @@ extension ItemsViewController: UITableViewDataSource {
 
 extension ItemsViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard !isSearching else { return }
         if indexPaths.contains(where: { $0.row >= items.count - 10 }) {
             delegate?.loadMoreItems(self)
         }

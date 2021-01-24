@@ -14,6 +14,7 @@ class ItemsCoordinator: Coordinator {
     private var isLoadingItems = false
     private var page = 0
     private var isLastPage = false
+    private var searchList = [NamedRefType<Item>]()
 
     private let navigationController: UINavigationController
     init(navigationController: UINavigationController) {
@@ -25,6 +26,7 @@ class ItemsCoordinator: Coordinator {
         navigationController.setViewControllers([itemsViewController], animated: false)
         self.itemsViewController = itemsViewController
         loadItems()
+        loadSearchList()
     }
 
     private func loadItems(page: Int = 0, pageSize: Int = 50) {
@@ -58,6 +60,22 @@ class ItemsCoordinator: Coordinator {
         }
     }
 
+    private func loadSearchList() {
+        // There is no search endpoint because of performance reasons. https://github.com/PokeAPI/pokeapi/issues/474
+        // As a workaround, query the full list and use the name field to search
+        let itemsRequest = ApiRequest(resource: ItemListResource(limit: 2000, offset: 0))
+        itemsRequest.load { result in
+            switch result {
+            case .success(let data):
+                self.searchList = data.results
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.show(error: error.localizedDescription)
+                }
+            }
+        }
+    }
+
     private func show(error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
@@ -70,5 +88,22 @@ extension ItemsCoordinator: ItemsViewControllerDelegate {
         guard !isLoadingItems && !isLastPage else { return }
         loadItems(page: page)
         page += 1
+    }
+
+    func loadSearch(_ itemsViewController: ItemsViewController, query: String) {
+        let subSet = searchList.filter { $0.name.contains(query.lowercased().replacingOccurrences(of: " ", with: "-")) }
+        let group = DispatchGroup()
+        for index in 0..<subSet.count {
+            group.enter()
+            subSet[index].fetch {
+                group.leave()
+            }
+        }
+
+        group.notify(queue: .main) {
+            self.itemsViewController?.setSearchResults(subSet.compactMap(\.ref)
+                                                            .map { ItemCellViewModel(item: $0) })
+            self.isLoadingItems = false
+        }
     }
 }

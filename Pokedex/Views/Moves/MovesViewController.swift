@@ -9,6 +9,7 @@ import UIKit
 
 protocol MovesViewControllerDelegate: AnyObject {
     func loadMoreMoves(_ movesViewController: MovesViewController)
+    func loadSearch(_ movesViewController: MovesViewController, query: String)
 }
 
 class MovesViewController: UIViewController {
@@ -16,6 +17,15 @@ class MovesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private var moves = [MoveCellViewModel]()
+    private var searchResults = [MoveCellViewModel]()
+    private var isSearching: Bool {
+        if let text = navigationBar.searchTextField.text, !text.isEmpty {
+            return true
+        } else {
+            return false
+        }
+    }
+
     private weak var delegate: MovesViewControllerDelegate?
     init(delegate: MovesViewControllerDelegate) {
         self.delegate = delegate
@@ -29,7 +39,7 @@ class MovesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.titleLabel.text = "Moves"
+        configureNavigationBar()
         configureTableView()
     }
 
@@ -42,17 +52,36 @@ class MovesViewController: UIViewController {
         }
     }
 
+    func setSearchResults(_ searchResults: [MoveCellViewModel]) {
+        self.searchResults = searchResults
+        tableView.reloadData()
+    }
+
+    private func configureNavigationBar() {
+        navigationBar.titleLabel.text = "Moves"
+        navigationBar.searchTextField.addTarget(self, action: #selector(search), for: .editingChanged)
+    }
+
     private func configureTableView() {
         tableView.dataSource = self
         tableView.prefetchDataSource = self
         tableView.rowHeight = 75
         tableView.register(UINib(nibName: "MoveTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.moveCell)
     }
+
+    @objc func search() {
+        tableView.reloadData()
+        delegate?.loadSearch(self, query: navigationBar.searchTextField.text ?? "")
+    }
 }
 
 extension MovesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        moves.count
+        if isSearching {
+            return searchResults.count
+        } else {
+            return moves.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,7 +89,11 @@ extension MovesViewController: UITableViewDataSource {
             fatalError("Cannot dequeue cell with reusable identifier \(Constants.CellIds.moveCell)")
         }
 
-        cell.load(viewModel: moves[indexPath.row])
+        if isSearching {
+            cell.load(viewModel: searchResults[indexPath.row])
+        } else {
+            cell.load(viewModel: moves[indexPath.row])
+        }
 
         return cell
     }
@@ -68,6 +101,7 @@ extension MovesViewController: UITableViewDataSource {
 
 extension MovesViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard !isSearching else { return }
         if indexPaths.contains(where: { $0.row >= moves.count - 10 }) {
             delegate?.loadMoreMoves(self)
         }
