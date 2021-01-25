@@ -11,7 +11,7 @@ struct PokemonSpecies {
     let genderRate: Int
     let captureRate: Int
     let hatchCounter: Int
-    let habitat: NamedRefType<PokemonHabitat>
+    let habitat: NamedRefType<PokemonHabitat>?
     let generation: NamedRefType<Generation>
     let eggGroups: [NamedRefType<EggGroup>]
     let texts: [FlavorText]
