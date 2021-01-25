@@ -49,6 +49,8 @@ class NavigationBar: UIView {
     var searchTextField: UITextField = {
         let searchTextField = UITextField()
 
+        searchTextField.autocorrectionType = .no
+        searchTextField.spellCheckingType = .no
         searchTextField.heightAnchor.constraint(equalToConstant: 36).isActive = true
         searchTextField.backgroundColor = UIColor.black.withAlphaComponent(0.12)
         searchTextField.layer.cornerRadius = 18
