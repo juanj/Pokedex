@@ -75,6 +75,7 @@ class PokemonDetailViewController: UIViewController {
         tableView.register(UINib(nibName: "PokemonAbilityTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonAbilityCell)
         tableView.register(UINib(nibName: "PokemonBreedingTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonBreedingCell)
         tableView.register(UINib(nibName: "PokemonCaptureTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonCaptureCell)
+        tableView.register(UINib(nibName: "PokemonSpritesTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonSpritesCell)
     }
 
     private func loadData() {
@@ -246,7 +247,11 @@ extension PokemonDetailViewController: UITableViewDataSource {
                     if indexPath.row == 0 {
                         return sectionTitleCell(tableView, title: "Sprites")
                     } else {
-                        return defaultCell(tableView)
+                        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.pokemonSpritesCell) as? PokemonSpritesTableViewCell else {
+                            fatalError("Cannor dequeue cell with reusable identifier \(Constants.CellIds.pokemonSpritesCell)")
+                        }
+                        cell.load(viewModel: viewModel.sprites)
+                        return cell
                     }
                 }
             case .evolutions:

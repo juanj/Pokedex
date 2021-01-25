@@ -33,6 +33,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8u-d9-Bz8">
+                    <rect key="frame" x="0.0" y="384" width="414" height="312"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Icq-lx-FdL">
                     <rect key="frame" x="0.0" y="44" width="414" height="340"/>
                     <subviews>
@@ -108,16 +112,21 @@
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Uv-AG-Dxk">
                     <rect key="frame" x="0.0" y="384" width="414" height="512"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemGray5Color"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="J8u-d9-Bz8" secondAttribute="bottom" constant="200" id="2BF-CQ-a55"/>
                 <constraint firstItem="Tqk-gF-gga" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6e2-Je-snI"/>
                 <constraint firstAttribute="bottom" secondItem="Tqk-gF-gga" secondAttribute="bottom" id="Agc-KM-nGR"/>
                 <constraint firstAttribute="bottom" secondItem="6Uv-AG-Dxk" secondAttribute="bottom" id="Hih-u9-LdF"/>
                 <constraint firstItem="Icq-lx-FdL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JCf-7T-dla"/>
+                <constraint firstItem="J8u-d9-Bz8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ktg-qL-jdi"/>
+                <constraint firstItem="J8u-d9-Bz8" firstAttribute="top" secondItem="Icq-lx-FdL" secondAttribute="bottom" id="bRa-e9-Dbr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="J8u-d9-Bz8" secondAttribute="trailing" id="bxQ-sn-lvo"/>
                 <constraint firstItem="Tqk-gF-gga" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="daI-IZ-bG7"/>
                 <constraint firstAttribute="trailing" secondItem="Tqk-gF-gga" secondAttribute="trailing" id="hAv-ii-Ifn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6Uv-AG-Dxk" secondAttribute="trailing" id="iTW-3e-Rb2"/>
