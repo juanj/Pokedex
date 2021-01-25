@@ -46,6 +46,11 @@ extension PokemonDetailViewModel {
         PokemonStatsCellViewModel(pokemon: pokemon)
     }
 
+    var breeding: PokemonBreedingCellViewModel? {
+        guard let species = pokemon.species.ref else { return nil }
+        return PokemonBreedingCellViewModel(species: species, theme: theme)
+    }
+
     var abilities: [PokemonAbilityCellViewModel] {
         pokemon.abilities.map { PokemonAbilityCellViewModel(ability: $0, theme: theme) }
     }
