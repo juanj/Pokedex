@@ -40,7 +40,7 @@ extension PokemonSpritesCellViewModel {
     }
 
     var theme: Theme? {
-        if let type = pokemon.types.max(by: { $0.slot < $1.slot }), let theme = Theme(type: type.name) {
+        if let type = pokemon.types.min(by: { $0.slot < $1.slot }), let theme = Theme(type: type.name) {
             return theme
         }
         return nil

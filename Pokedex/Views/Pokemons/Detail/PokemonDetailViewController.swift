@@ -16,7 +16,7 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var pokemonImageView: UIImageView!
     @IBOutlet weak var whiteView: UIView!
     @IBOutlet weak var bigTitleLabel: UILabel!
-    @IBOutlet weak var tagView: TypeTagView!
+    @IBOutlet weak var tagsStackView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var whiteViewHeightConstraint: NSLayoutConstraint!
@@ -85,7 +85,12 @@ class PokemonDetailViewController: UIViewController {
         if let theme = viewModel.theme {
             gradientView.colors = theme.gradientColors
             gradientView.locations = [0, 1]
-            tagView.theme = theme
+        }
+
+        for type in viewModel.types {
+            let tagView = TypeTagView()
+            tagView.theme = type
+            tagsStackView.addArrangedSubview(tagView)
         }
     }
 
