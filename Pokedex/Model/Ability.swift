@@ -7,8 +7,15 @@
 
 import Foundation
 
-class Ability: Decodable {
+struct Ability {
     let name: String
     let names: [Name]
-    let texts: [AbilityFlavorText]
+    let effectEntries: [VerboseEffect]
+}
+
+extension Ability: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case name, names
+        case effectEntries = "effect_entries"
+    }
 }

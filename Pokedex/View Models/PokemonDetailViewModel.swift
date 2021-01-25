@@ -47,7 +47,7 @@ extension PokemonDetailViewModel {
     }
 
     var abilities: [PokemonAbilityCellViewModel] {
-        pokemon.abilities.map { PokemonAbilityCellViewModel(ability: $0) }
+        pokemon.abilities.map { PokemonAbilityCellViewModel(ability: $0, theme: theme) }
     }
 
     var evolutions: [PokemonEvolutionCellViewModel] {

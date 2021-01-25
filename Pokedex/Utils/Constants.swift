@@ -18,5 +18,6 @@ struct Constants {
         static let pokemonEvolutionCell = "pokemonEvolutionCellId"
         static let pokemonStatsCell = "pokemonStatsCellId"
         static let sectionTitleCell = "sectionTitleCellId"
+        static let pokemonAbilityCell = "pokemonAbilityCellId"
     }
 }

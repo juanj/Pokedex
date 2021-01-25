@@ -153,6 +153,14 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
             }
         }
 
+        // Fetch all abilities
+        for index in 0..<pokemon.abilities.count {
+            group.enter()
+            pokemon.abilities[index].ability.fetch {
+                group.leave()
+            }
+        }
+
         // Only THEN we can continue
         group.notify(queue: .main) {
             pokemonsViewController.endLoading()
