@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="91" id="KGk-i7-Jjw" customClass="PokemonCaptureTableViewCell" customModule="Pokedex" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="452" height="91"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="452" height="91"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="CbI-iQ-bw3">
+                        <rect key="frame" x="0.0" y="14" width="452" height="60"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Uzi-87-9YL">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="45.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Habitat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY3-Tl-qHN">
+                                        <rect key="frame" x="49.5" y="0.0" width="51" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="qLZ-rk-2ju"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tJ-Du-qVz">
+                                        <rect key="frame" x="57" y="25" width="36.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                        <color key="textColor" name="TextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2aF-2h-mOM">
+                                <rect key="frame" x="150" y="0.0" width="1" height="60"/>
+                                <color key="backgroundColor" name="SeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Sfo-d2-N92"/>
+                                    <constraint firstAttribute="width" constant="1" id="l7H-Bs-utX"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eOD-cg-Vnr">
+                                <rect key="frame" x="151" y="0.0" width="150" height="45.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3b-E9-9Ox">
+                                        <rect key="frame" x="37" y="0.0" width="76.5" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="8P7-Ur-H1J"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CM-XE-4H0">
+                                        <rect key="frame" x="57" y="25" width="36.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                        <color key="textColor" name="TextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aI9-mH-Cpp">
+                                <rect key="frame" x="301" y="0.0" width="1" height="60"/>
+                                <color key="backgroundColor" name="SeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HgU-t6-bX6"/>
+                                    <constraint firstAttribute="width" constant="1" id="SEa-2u-06X"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pIr-3V-2j2">
+                                <rect key="frame" x="302" y="0.0" width="150" height="45.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jc4-xp-hL6">
+                                        <rect key="frame" x="30" y="0.0" width="90.5" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="yFu-G5-2Z5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3E-RX-QFV">
+                                        <rect key="frame" x="69" y="25" width="12.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                        <color key="textColor" name="Male"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="cGk-aW-1aF"/>
+                            <constraint firstItem="Uzi-87-9YL" firstAttribute="width" secondItem="eOD-cg-Vnr" secondAttribute="width" id="dx6-7G-URK"/>
+                            <constraint firstItem="Uzi-87-9YL" firstAttribute="width" secondItem="pIr-3V-2j2" secondAttribute="width" id="keC-Fa-s9g"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="CbI-iQ-bw3" secondAttribute="bottom" constant="14" id="jyE-XK-FzR"/>
+                    <constraint firstItem="CbI-iQ-bw3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="ly0-xR-wEC"/>
+                    <constraint firstItem="CbI-iQ-bw3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="oAd-7P-6Zr"/>
+                    <constraint firstAttribute="trailing" secondItem="CbI-iQ-bw3" secondAttribute="trailing" id="tDe-xW-IkE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="captureRateLabel" destination="h3E-RX-QFV" id="nOg-nM-2IX"/>
+                <outlet property="generationLabel" destination="3CM-XE-4H0" id="R7Q-16-ot5"/>
+                <outlet property="habitatLabel" destination="5tJ-Du-qVz" id="jNX-Eg-sWU"/>
+                <outletCollection property="titleLabels" destination="lY3-Tl-qHN" collectionClass="NSMutableArray" id="fQJ-CF-50h"/>
+                <outletCollection property="titleLabels" destination="P3b-E9-9Ox" collectionClass="NSMutableArray" id="AYM-Ch-tCL"/>
+                <outletCollection property="titleLabels" destination="jc4-xp-hL6" collectionClass="NSMutableArray" id="dtU-k0-tLw"/>
+            </connections>
+            <point key="canvasLocation" x="236.23188405797103" y="123.54910714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Male">
+            <color red="0.50196078431372548" green="0.71372549019607845" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SeparatorColor">
+            <color red="0.89411764705882357" green="0.89411764705882357" blue="0.89411764705882357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -34,5 +34,11 @@ class PokemonBreedingTableViewCell: UITableViewCell {
         cyclesLabel.text = viewModel.cycles
         femaleRatioLabel.text = viewModel.feamleRatio
         maleRatioLabel.text = viewModel.maleRatio
+
+        if let theme = viewModel.theme {
+            for label in titleLabels {
+                label.textColor = theme.primaryColor
+            }
+        }
     }
 }

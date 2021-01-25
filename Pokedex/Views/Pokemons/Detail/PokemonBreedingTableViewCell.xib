@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2lW-nx-ynQ">
-                        <rect key="frame" x="0.0" y="14" width="320" height="120"/>
+                        <rect key="frame" x="0.0" y="14" width="320" height="90"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aIW-RO-NWX">
                                 <rect key="frame" x="0.0" y="0.0" width="106" height="71.5"/>
@@ -116,7 +116,7 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="120" id="Oh7-Op-Jai"/>
+                            <constraint firstAttribute="height" constant="90" id="Oh7-Op-Jai"/>
                             <constraint firstItem="aIW-RO-NWX" firstAttribute="width" secondItem="bik-rz-TAV" secondAttribute="width" id="W14-E9-IGD"/>
                             <constraint firstItem="aIW-RO-NWX" firstAttribute="width" secondItem="L6v-qk-Yzw" secondAttribute="width" id="uGQ-ua-126"/>
                         </constraints>

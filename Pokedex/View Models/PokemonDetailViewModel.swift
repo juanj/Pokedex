@@ -51,6 +51,11 @@ extension PokemonDetailViewModel {
         return PokemonBreedingCellViewModel(species: species, theme: theme)
     }
 
+    var capture: PokemonCaptureCellViewModel? {
+        guard let species = pokemon.species.ref else { return nil }
+        return PokemonCaptureCellViewModel(species: species, theme: theme)
+    }
+
     var abilities: [PokemonAbilityCellViewModel] {
         pokemon.abilities.map { PokemonAbilityCellViewModel(ability: $0, theme: theme) }
     }
