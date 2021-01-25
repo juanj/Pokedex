@@ -42,6 +42,10 @@ extension PokemonDetailViewModel {
         return nil
     }
 
+    var stats: PokemonStatsCellViewModel {
+        PokemonStatsCellViewModel(pokemon: pokemon)
+    }
+
     var abilities: [PokemonAbilityCellViewModel] {
         pokemon.abilities.map { PokemonAbilityCellViewModel(ability: $0) }
     }

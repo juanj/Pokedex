@@ -23,4 +23,5 @@ extension UIColor {
     static let lightGreen = colorOrFail("Light Green")
     static let pastelGreen = colorOrFail("Pastel Green")
     static let aquamarineBlue = colorOrFail("Aquamarine Blue")
+    static let progressBackground = colorOrFail("Progress Background")
 }

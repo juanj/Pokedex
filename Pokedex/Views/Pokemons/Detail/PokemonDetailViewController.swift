@@ -70,6 +70,7 @@ class PokemonDetailViewController: UIViewController {
         tableView.register(UINib(nibName: "PokemonSelecSectionTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.sectionCell)
         tableView.register(UINib(nibName: "PokemonMoveTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonMoveCell)
         tableView.register(UINib(nibName: "PokemonEvolutionTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonEvolutionCell)
+        tableView.register(UINib(nibName: "PokemonStatsTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonStatsCell)
     }
 
     private func loadData() {
@@ -190,6 +191,24 @@ extension PokemonDetailViewController: UITableViewDataSource {
             }
         } else {
             switch selectedSection {
+            case .stats:
+                guard let subSection = StatsSections(rawValue: indexPath.section) else {
+                    fatalError("Section \(indexPath) not found")
+                }
+                switch subSection {
+                case .stats:
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.pokemonStatsCell) as? PokemonStatsTableViewCell else {
+                        fatalError("Cannor dequeue cell with reusable identifier \(Constants.CellIds.pokemonStatsCell)")
+                    }
+                    cell.load(viewModel: viewModel.stats)
+                    return cell
+                default:
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "test") else {
+                        fatalError()
+                    }
+
+                    return cell
+                }
             case .evolutions:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.pokemonEvolutionCell) as? PokemonEvolutionTableViewCell else {
                     fatalError("Cannor dequeue cell with reusable identifier \(Constants.CellIds.pokemonEvolutionCell)")
@@ -201,12 +220,6 @@ extension PokemonDetailViewController: UITableViewDataSource {
                     fatalError("Cannor dequeue cell with reusable identifier \(Constants.CellIds.pokemonMoveCell)")
                 }
                 cell.load(viewModel: viewModel.moves[indexPath.row])
-                return cell
-            default:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "test") else {
-                    fatalError()
-                }
-
                 return cell
             }
         }
