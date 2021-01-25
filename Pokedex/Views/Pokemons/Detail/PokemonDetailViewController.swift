@@ -71,6 +71,7 @@ class PokemonDetailViewController: UIViewController {
         tableView.register(UINib(nibName: "PokemonMoveTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonMoveCell)
         tableView.register(UINib(nibName: "PokemonEvolutionTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonEvolutionCell)
         tableView.register(UINib(nibName: "PokemonStatsTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.pokemonStatsCell)
+        tableView.register(UINib(nibName: "SectionTitleTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.CellIds.sectionTitleCell)
     }
 
     private func loadData() {
@@ -154,10 +155,12 @@ extension PokemonDetailViewController: UITableViewDataSource {
             case .stats:
                 if let subSection = StatsSections(rawValue: section) {
                     switch subSection {
-                    case .stats, .weaknesses, .breeding, .capture, .sprites:
+                    case .stats:
                         return 1
+                    case .breeding, .capture, .sprites:
+                        return 2
                     case .abilities:
-                        return viewModel.abilities.count
+                        return viewModel.abilities.count + 1
                     }
                 }
             case .evolutions:
@@ -202,12 +205,30 @@ extension PokemonDetailViewController: UITableViewDataSource {
                     }
                     cell.load(viewModel: viewModel.stats)
                     return cell
-                default:
-                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "test") else {
-                        fatalError()
+                case .abilities:
+                    if indexPath.row == 0 {
+                        return sectionTitleCell(tableView, title: "Abilities")
+                    } else {
+                        return defaultCell(tableView)
                     }
-
-                    return cell
+                case .breeding:
+                    if indexPath.row == 0 {
+                        return sectionTitleCell(tableView, title: "Breeding")
+                    } else {
+                        return defaultCell(tableView)
+                    }
+                case .capture:
+                    if indexPath.row == 0 {
+                        return sectionTitleCell(tableView, title: "Capture")
+                    } else {
+                        return defaultCell(tableView)
+                    }
+                case .sprites:
+                    if indexPath.row == 0 {
+                        return sectionTitleCell(tableView, title: "Sprites")
+                    } else {
+                        return defaultCell(tableView)
+                    }
                 }
             case .evolutions:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.pokemonEvolutionCell) as? PokemonEvolutionTableViewCell else {
@@ -223,6 +244,25 @@ extension PokemonDetailViewController: UITableViewDataSource {
                 return cell
             }
         }
+    }
+
+    func sectionTitleCell(_ tableView: UITableView, title: String) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIds.sectionTitleCell) as? SectionTitleTableViewCell else {
+            fatalError("Cannor dequeue cell with reusable identifier \(Constants.CellIds.sectionTitleCell)")
+        }
+
+        if let theme = viewModel.theme {
+            cell.load(text: title, theme: theme)
+        }
+        return cell
+    }
+
+    func defaultCell(_ tableView: UITableView) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "test") else {
+            fatalError()
+        }
+
+        return cell
     }
 }
 

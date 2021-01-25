@@ -9,7 +9,6 @@ import Foundation
 
 enum StatsSections: Int, CaseIterable {
     case stats = 1
-    case weaknesses
     case abilities
     case breeding
     case capture

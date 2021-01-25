@@ -91,6 +91,8 @@
 		325D210125BE4425000384F8 /* PokemonStatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D20FF25BE4425000384F8 /* PokemonStatsTableViewCell.swift */; };
 		325D210225BE4425000384F8 /* PokemonStatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 325D210025BE4425000384F8 /* PokemonStatsTableViewCell.xib */; };
 		325D210625BE467F000384F8 /* PokemonStatsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D210525BE467F000384F8 /* PokemonStatsCellViewModel.swift */; };
+		325D210B25BE4F9D000384F8 /* SectionTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325D210925BE4F9D000384F8 /* SectionTitleTableViewCell.swift */; };
+		325D210C25BE4F9D000384F8 /* SectionTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 325D210A25BE4F9D000384F8 /* SectionTitleTableViewCell.xib */; };
 		3278E43C25BE339B00604819 /* PokemonEvolutionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278E43A25BE339B00604819 /* PokemonEvolutionTableViewCell.swift */; };
 		3278E43D25BE339B00604819 /* PokemonEvolutionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3278E43B25BE339B00604819 /* PokemonEvolutionTableViewCell.xib */; };
 		3278E44125BE352900604819 /* PokemonEvolutionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278E44025BE352900604819 /* PokemonEvolutionCellViewModel.swift */; };
@@ -201,6 +203,8 @@
 		325D20FF25BE4425000384F8 /* PokemonStatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsTableViewCell.swift; sourceTree = "<group>"; };
 		325D210025BE4425000384F8 /* PokemonStatsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonStatsTableViewCell.xib; sourceTree = "<group>"; };
 		325D210525BE467F000384F8 /* PokemonStatsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsCellViewModel.swift; sourceTree = "<group>"; };
+		325D210925BE4F9D000384F8 /* SectionTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleTableViewCell.swift; sourceTree = "<group>"; };
+		325D210A25BE4F9D000384F8 /* SectionTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTitleTableViewCell.xib; sourceTree = "<group>"; };
 		3278E43A25BE339B00604819 /* PokemonEvolutionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEvolutionTableViewCell.swift; sourceTree = "<group>"; };
 		3278E43B25BE339B00604819 /* PokemonEvolutionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonEvolutionTableViewCell.xib; sourceTree = "<group>"; };
 		3278E44025BE352900604819 /* PokemonEvolutionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEvolutionCellViewModel.swift; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 				3278E43B25BE339B00604819 /* PokemonEvolutionTableViewCell.xib */,
 				325D20FF25BE4425000384F8 /* PokemonStatsTableViewCell.swift */,
 				325D210025BE4425000384F8 /* PokemonStatsTableViewCell.xib */,
+				325D210925BE4F9D000384F8 /* SectionTitleTableViewCell.swift */,
+				325D210A25BE4F9D000384F8 /* SectionTitleTableViewCell.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -536,6 +542,7 @@
 				3247746A25BCD72300D83813 /* ItemTableViewCell.xib in Resources */,
 				322FD3B425BE157A005884A9 /* PokemonSelecSectionTableViewCell.xib in Resources */,
 				322FD39825BE0751005884A9 /* PokemonInfoTableViewCell.xib in Resources */,
+				325D210C25BE4F9D000384F8 /* SectionTitleTableViewCell.xib in Resources */,
 				322268FE25BC4C040088F8DD /* LaunchScreen.storyboard in Resources */,
 				321C177325BDB94C00C5C62B /* MoveDetailViewController.xib in Resources */,
 				3247745225BCCFEF00D83813 /* MoveTableViewCell.xib in Resources */,
@@ -580,6 +587,7 @@
 				3222699725BC8D620088F8DD /* ApiResource.swift in Sources */,
 				3222698525BC83730088F8DD /* PokemonAbility.swift in Sources */,
 				3247746025BCD4A300D83813 /* Item.swift in Sources */,
+				325D210B25BE4F9D000384F8 /* SectionTitleTableViewCell.swift in Sources */,
 				3247741E25BCA39A00D83813 /* Constants.swift in Sources */,
 				322FD3B325BE157A005884A9 /* PokemonSelecSectionTableViewCell.swift in Sources */,
 				3222697425BC7DF00088F8DD /* Pokemon.swift in Sources */,
