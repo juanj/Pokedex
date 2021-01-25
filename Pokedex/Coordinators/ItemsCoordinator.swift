@@ -15,6 +15,7 @@ class ItemsCoordinator: Coordinator {
     private var page = 0
     private var isLastPage = false
     private var searchList = [NamedRefType<Item>]()
+    private var lastSearchRequest: UUID? // Kepp track of the last request to update search results only one time
 
     private let navigationController: UINavigationController
     init(navigationController: UINavigationController) {
@@ -91,6 +92,7 @@ extension ItemsCoordinator: ItemsViewControllerDelegate {
     }
 
     func loadSearch(_ itemsViewController: ItemsViewController, query: String) {
+        let searchRequest = UUID()
         let subSet = searchList.filter { $0.name.contains(query.lowercased().replacingOccurrences(of: " ", with: "-")) }
         let group = DispatchGroup()
         for index in 0..<subSet.count {
@@ -101,10 +103,12 @@ extension ItemsCoordinator: ItemsViewControllerDelegate {
         }
 
         group.notify(queue: .main) {
+            guard self.lastSearchRequest == searchRequest else { return }
             self.itemsViewController?.setSearchResults(subSet.compactMap(\.ref)
                                                             .map { ItemCellViewModel(item: $0) })
             self.isLoadingItems = false
         }
+        lastSearchRequest = searchRequest
     }
 
     func didSelectItem(_ itemsViewController: ItemsViewController, item: Item) {

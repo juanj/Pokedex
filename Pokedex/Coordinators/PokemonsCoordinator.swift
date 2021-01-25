@@ -15,6 +15,7 @@ class PokemonsCoordinator: Coordinator {
     private var page = 1
     private var isLastPage = false
     private var searchList = [NamedRefType<Pokemon>]()
+    private var lastSearchRequest: UUID? // Kepp track of the last request to update search results only one time
 
     private let navigationController: UINavigationController
     init(navigationController: UINavigationController) {
@@ -92,6 +93,7 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
     }
 
     func loadSearch(_ pokemonsViewController: PokemonsViewController, query: String) {
+        let searchRequest = UUID()
         let subSet = searchList.filter { $0.name.contains(query.lowercased().replacingOccurrences(of: " ", with: "-")) }
         let group = DispatchGroup()
         for index in 0..<subSet.count {
@@ -102,10 +104,12 @@ extension PokemonsCoordinator: PokemonsViewControllerDelegate {
         }
 
         group.notify(queue: .main) {
+            guard self.lastSearchRequest == searchRequest else { return }
             self.pokemonsViewController?.setSearchResults(subSet.compactMap(\.ref)
-                                                        .map { PokemonCellViewModel(pokemon: $0) })
+                                                            .map { PokemonCellViewModel(pokemon: $0) })
             self.isLoadingPokemons = false
         }
+        lastSearchRequest = searchRequest
     }
 
     func didSelectPokemon(_ pokemonsViewController: PokemonsViewController, pokemon: Pokemon) {

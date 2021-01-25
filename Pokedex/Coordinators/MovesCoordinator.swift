@@ -15,6 +15,7 @@ class MovesCoordinator: Coordinator {
     private var page = 0
     private var isLastPage = false
     private var searchList = [NamedRefType<Move>]()
+    private var lastSearchRequest: UUID? // Kepp track of the last request to update search results only one time
 
     private let navigationController: UINavigationController
     init(navigationController: UINavigationController) {
@@ -91,6 +92,7 @@ extension MovesCoordinator: MovesViewControllerDelegate {
     }
 
     func loadSearch(_ movesViewController: MovesViewController, query: String) {
+        let searchRequest = UUID()
         let subSet = searchList.filter { $0.name.contains(query.lowercased().replacingOccurrences(of: " ", with: "-")) }
         let group = DispatchGroup()
         for index in 0..<subSet.count {
@@ -101,10 +103,12 @@ extension MovesCoordinator: MovesViewControllerDelegate {
         }
 
         group.notify(queue: .main) {
+            guard self.lastSearchRequest == searchRequest else { return }
             self.movesViewController?.setSearchResults(subSet.compactMap(\.ref)
                                                         .map { MoveCellViewModel(move: $0) })
             self.isLoadingMoves = false
         }
+        self.lastSearchRequest = searchRequest
     }
 
     func didSelectMove(_ movesViewController: MovesViewController, move: Move) {
